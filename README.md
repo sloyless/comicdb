@@ -1,4 +1,6 @@
-#POW! Comic Book Manager
+# POW! Comic Book Manager
+[![Build Status](https://travis-ci.org/sloyless/pow-cbm.svg?branch=master)](https://travis-ci.org/sloyless/pow-cbm)
+[![devDependency Status](https://david-dm.org/sloyless/pow-cbm/dev-status.svg?theme=shields.io)](https://david-dm.org/sloyless/pow-cbm#info=devDependencies)
 
 A Bootstrap PHP/MySQL web application for maintaining a comic book collection database.
 

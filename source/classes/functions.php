@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set('America/Chicago');
 /**
  * functions relating to searching comic information
  * <pre>
