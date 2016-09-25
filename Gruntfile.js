@@ -7,8 +7,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     project: {
-      app: ['source/'],
-      build: ['build/'],
+      app: ['./source'],
+      build: ['./build'],
       css: ['<%= project.app %>/styles'],
       scripts: ['<%= project.app %>/scripts'],
       components: ['<%= project.app %>/modules']
@@ -17,58 +17,59 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
-          style: 'expanded'
+          outputStyle: 'expanded',
+          outFile: '<%= project.build %>/styles.css',
+          sourceMap: true
         },
         files: {
-            "<%= project.build %>/styles.css": "<%= project.css %>/styles.scss"
+            "<%= project.build %>/styles.css": "<%= project.css %>/styles.{sass,scss}"
         }
       },
       build: {
         options: {
-          style: 'expanded',
-          sourcemap: 'none'
+          outputStyle: 'compressed'
         },
         files: {
-            "<%= project.build %>/styles.css": "<%= project.css %>/styles.scss"
+            "<%= project.build %>/styles.css": "<%= project.css %>/styles.{sass,scss}"
+        }
+      }
+    },
+    // Coffeescript -> JS
+    // Concats and compiles all coffeescript files into one app.js file
+    coffee: {
+      dev: {
+        options: {
+          bare: true,
+          sourceMap: true
+        },
+        expand: true,
+        ext: '.js',
+        flatten: false,
+        files: {
+          '<%= project.build %>/scripts/app.js': ['<%= project.js %>/app.coffee', '<%= project.js %>/factory.coffee', '<%= project.js %>/root-ctrl.coffee', '<%= project.components %>/**/*.coffee']
         }
       },
-    },
-    // JS -> Concat
-    concat: {
-      options: {
-        separator: ';',
-        sourceMap: true,
-        sourceMapStyle: 'link'
-      },
-      dist: {
-        src: ['<%= project.app %>/scripts/**/*.js', '<%= project.components %>/**/*.js', '!<%= project.app %>/scripts/**/*.min.js'],
-        dest: '<%= project.build %>/scripts/app.js'
-      },
-    },
-    // JS Minify
-    uglify: {
-      options: {
-        sourceMap: true,
-        sourceMapIn: '<%= project.build %>/scripts/app.js.map',
-        screwIE8: true
-      },
-      dist: {
+      build: {
+        options: {
+          bare: true,
+          sourceMap: false
+        },
+        expand: true,
+        flatten: false,
+        ext: '.js',
         files: {
-          '<%= project.build %>/scripts/app.min.js': ['<%= concat.dist.dest %>']
+          '<%= project.build %>/scripts/app.js': ['<%= project.js %>/app.coffee', '<%= project.js %>/factory.coffee', '<%= project.js %>/root-ctrl.coffee', '<%= project.components %>/**/*.coffee']
         }
       }
     },
     // JS Error checking
     jshint: {
-      files: ['Gruntfile.js', '<%= project.app %>/scripts/comicdb.js', '<%= project.components %>/**/*.js'],
+      all: [
+        '<%= project.build %>/{scripts,components}/**/*.js'
+      ],
       options: {
-        // options here to override JSHint defaults
-        globals: {
-          jQuery: true,
-          console: true,
-          module: true,
-          document: true
-        }
+        jshintrc: '<%= project.app %>/.jshintrc',
+        reporter: require('jshint-stylish')
       }
     },
     // Adds any relevate autoprefixers supporting IE 11 and above
@@ -92,18 +93,10 @@ module.exports = function(grunt) {
           max_jshint_notifications: 1
         }
       },
-      js:{
+      coffee:{
         options:{
           title: "Grunt",
-          message: "JS linted, compiled, and minified successfully.",
-          duration: 2,
-          max_jshint_notifications: 1
-        }
-      },
-      autoprefixer:{
-        options:{
-          title: "Grunt",
-          message: "CSS Autoprefixed Successfully.",
+          message: "Coffeescript Compiled Successfully.",
           duration: 2,
           max_jshint_notifications: 1
         }
@@ -130,7 +123,14 @@ module.exports = function(grunt) {
       main: {
         expand: true,
         cwd: '<%= project.app %>/',
-        src: ['**/*.php', 'scripts/jquery-2.2.0.min.js', 'assets/**/*', 'images/**/*', 'favicon.ico'],
+        src: [
+          '*.{ico,png,txt}',
+          '.htaccess',
+          'assets/**/*',
+          'images/**/*',
+          'bower_components/**/*',
+          '**/*.php'
+        ],
         dest: '<%= project.build %>/',
       }
     },
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
       images: {
         files: [{
           cwd: '<%= project.app %>/', 
-          src: ['assets/**/*'],
+          src: ['assets/**/*', '*.{ico,png,txt}'],
           dest: '<%= project.build %>/'
         }],
       }
@@ -164,15 +164,11 @@ module.exports = function(grunt) {
     watch: {
       sass: {
         files: ['<%= project.css %>/**/*.{scss,sass}','<%= project.components %>/**/*.{scss,sass}'],
-        tasks: ['sass:dev','notify:sass']
+        tasks: ['sass:dev','autoprefixer','notify:sass']
       },
-      js: {
-        files: ['<%= jshint.files %>'],
-        tasks: ['jshint','concat','uglify','notify:js']
-      },
-      autoprefixer: {
-        files: ['<%= project.build %>/styles.css'],
-        tasks: ['autoprefixer', 'notify:autoprefixer']
+      coffee: {
+        files: ['<%= project.scripts %>/**/*.{coffee,litcoffee}', '<%= project.components %>/**/*.{coffee,litcoffee}'],
+        tasks: ['coffee:dev', 'newer:jshint', 'notify:coffee']
       },
       // Sync tasks for PHP and Images
       php: {
@@ -182,6 +178,21 @@ module.exports = function(grunt) {
       images: {
         files: ['<%= project.app %>/assets/**/*'],
         tasks: ['sync:images', 'notify:images']
+      },
+      gruntfile: {
+        files: ['Gruntfile.js']
+      }
+    },
+    // Server setup
+    php: {
+      dev: {
+        options: {
+          base: 'build',
+          port: 8888,
+          open: false,
+          keepalive: false,
+          silent: true
+        }
       }
     },
     browserSync: {
@@ -189,16 +200,24 @@ module.exports = function(grunt) {
         bsFiles: {
           src : [
               '<%= project.build %>/styles.css',
-              '<%= project.build %>/app.min.js',
+              '<%= project.build %>/scripts/*.js',
               '<%= project.build %>/**/*.{png,jpg,jpeg,gif,webp,svg}',
               '<%= project.build %>/**/*.{php,html}'
           ]
         },
         options: {
-          proxy: 'localhost:8888', //our PHP server
-          port: 8080, // our new port
+          proxy: 'localhost:<%= php.dev.options.port %>', //our PHP server
+          port: 9000,
+          watchTask: true,
+          notify: true,
           open: true,
-          watchTask: true
+          logLevel: 'info',
+          ghostMode: {
+            clicks: true,
+            scroll: true,
+            links: true,
+            forms: true
+          }
         }
       }
     }
@@ -209,17 +228,19 @@ module.exports = function(grunt) {
     'clean',
     'copy:main',
     'sass:dev',
-    'jshint',
-    'concat',
-    'uglify',
     'autoprefixer',
-    'browserSync',
+    'coffee:dev',
+    'jshint',
+    'php',
+    'browserSync:dev',
     'watch'
   ]);
   grunt.registerTask('build', [
+    'clean',
+    'copy:main',
     'sass:build',
-    'concat',
-    'uglify',
     'autoprefixer',
+    'coffee:build',
+    'jshint'
   ]);
 };
