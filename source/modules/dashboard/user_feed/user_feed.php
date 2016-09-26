@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   $feedLength = 10;
   $followList = preg_replace('/}{/', ',', $userInfo->user_follows);

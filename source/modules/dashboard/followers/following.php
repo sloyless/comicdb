@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   if (isset($userInfo->user_follows)) {
     $followBlock = '';

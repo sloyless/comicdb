@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   $user->collectionCount ($profileID);
   $user->seriesCount ($profileID);

@@ -1,4 +1,4 @@
-      <?php include(__ROOT__.'/modules/notifications/notifications.php'); ?>
+      <?php include('modules/notifications/notifications.php'); ?>
     </main>
     <footer class="main-footer col-xs-12 text-center center-block">
       <p>&copy;<?php echo date("Y"); ?> Anthony Sanchez and Sean Loyless.</p>
@@ -6,25 +6,23 @@
   </div>
   <!-- Site content ends -->
   <?php if ($login->isUserLoggedIn () != true) { ?>
-    <?php include(__ROOT__.'/modules/login/login_modal.php'); ?>
+    <?php include('modules/login/login_modal.php'); ?>
   <?php } else { ?>
-    <?php include(__ROOT__.'/modules/login/logout_modal.php'); ?>
+    <?php include('modules/login/logout_modal.php'); ?>
   <?php } ?>  
 </div>
 <!-- Site wrapper ends -->
 
 <!-- Scripts at the bottom to improve load time -->
-<script src="/bower_components/angular/angular.js"></script>
-<script src="/bower_components/angular-resource/angular-resource.js"></script>
-<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="/bower_components/angular-route/angular-route.js"></script>
-<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="/bower_components/angular-animate/angular-animate.js"></script>
-<script src="/bower_components/angular-aria/angular-aria.js"></script>
-<script src="/bower_components/lodash/dist/lodash.compat.js"></script>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
+<script src="/scripts/vendor/angular.js"></script>
+<script src="/scripts/vendor/angular-resource.min.js"></script>
+<script src="/scripts/vendor/angular-cookies.min.js"></script>
+<script src="/scripts/vendor/angular-sanitize.min.js"></script>
+<script src="/scripts/vendor/angular-route.min.js"></script>
+<script src="/scripts/vendor/angular-animate.min.js"></script>
+<script src="/scripts/vendor/angular-aria.min.js"></script>
+<script src="/scripts/vendor/lodash.compat.min.js"></script>
+<script src="/scripts/vendor/ui-bootstrap-tpls-2.1.4.min.js"></script>
 
 <script src="/scripts/app.js"></script>
 

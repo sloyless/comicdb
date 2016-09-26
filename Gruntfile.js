@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         ext: '.js',
         flatten: false,
         files: {
-          '<%= project.build %>/scripts/app.js': ['<%= project.js %>/app.coffee', '<%= project.js %>/factory.coffee', '<%= project.js %>/root-ctrl.coffee', '<%= project.components %>/**/*.coffee']
+          '<%= project.build %>/scripts/app.js': ['<%= project.scripts %>/app.coffee', '<%= project.scripts %>/factory.coffee', '<%= project.scripts %>/root-ctrl.coffee', '<%= project.components %>/**/*.coffee']
         }
       },
       build: {
@@ -65,7 +65,7 @@ module.exports = function(grunt) {
     // JS Error checking
     jshint: {
       all: [
-        '<%= project.build %>/{scripts,components}/**/*.js'
+        '<%= project.build %>/{scripts}/app.js'
       ],
       options: {
         jshintrc: '<%= project.app %>/.jshintrc',
@@ -129,7 +129,8 @@ module.exports = function(grunt) {
           'assets/**/*',
           'images/**/*',
           'bower_components/**/*',
-          '**/*.php'
+          '**/*.{php,html}',
+          'scripts/vendor/*.js'
         ],
         dest: '<%= project.build %>/',
       }
@@ -138,7 +139,7 @@ module.exports = function(grunt) {
       php: {
         files: [{
           cwd: '<%= project.app %>/', 
-          src: ['**/*.php'],
+          src: ['**/*.{php,html}'],
           dest: '<%= project.build %>/'
         }],
       },
@@ -200,7 +201,7 @@ module.exports = function(grunt) {
         bsFiles: {
           src : [
               '<%= project.build %>/styles.css',
-              '<%= project.build %>/scripts/*.js',
+              '<%= project.build %>/scripts/**/*.js',
               '<%= project.build %>/**/*.{png,jpg,jpeg,gif,webp,svg}',
               '<%= project.build %>/**/*.{php,html}'
           ]

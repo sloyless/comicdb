@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   $quickAddIssue = filter_input ( INPUT_POST, 'quickAddIssue' );
 

@@ -1,23 +1,27 @@
+<spinner></spinner>
 <section class="dashboard-index">
   <div class="dashboard-content">
-    <?php include 'modules/dashboard/count_bar/count_bar.php'; ?>
-    <?php include 'modules/dashboard/carousel_bar/carousel_bar.php'; ?>
+    <count-bar></count-bar>
+    <carousel-bar></carousel-bar>
     <div class="row">
       <div class="col-lg-6 dashContentLeft">
-        <?php include 'modules/dashboard/quick_add/quick_add.php'; ?>
-        <?php include 'modules/dashboard/most_owned/most_owned.php'; ?>
+        <quick-add></quick-add>
+        <most-owned></most-owned>
       </div>
       <div class="col-lg-6 dashContentRight">
-        <?php include 'modules/dashboard/pull_list/pull_list.php'; ?>
+        <pull-list></pull-list>
       </div>
     </div>
   </div>
-  <aside class="sidebar">
-
+  <aside class="sidebar" role="">
     <div class="row">
-      <div class="col-xs-6 col-md-12"><?php include 'modules/dashboard/followers/following.php'; ?></div>
-      <div class="col-xs-6 col-md-12"><?php include 'modules/dashboard/followers/followers.php'; ?></div>
+      <div class="col-xs-6 col-md-12">
+        <following></following>
+      </div>
+      <div class="col-xs-6 col-md-12">
+        <followers></followers>
+      </div>
     </div>
-    <?php include 'modules/dashboard/user_feed/user_feed.php'; ?>
+    <user-feed></user-feed>
   </aside>
 </section>

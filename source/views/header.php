@@ -13,7 +13,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand logo" href="/">
+		      <a class="navbar-brand logo" ng-href="/">
 						<img src="../assets/logo.svg" alt="POW! Comic Book Manager" />
 		      	<h1>Comic Book Manager</h1>
 		      </a>
@@ -22,21 +22,21 @@
     		<div class="collapse navbar-collapse" id="main-nav-collapse">
 					<ul class="nav navbar-nav nolist">
 					<?php if ($login->isUserLoggedIn () == true) { ?>
-						<li><a href="/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
-						<li><a href="/profile.php"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
-						<li><a href="/add.php"><i class="fa fa-fw fa-plus-circle text-center"></i> Add Items</a></li>
+						<li><a ng-href="/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
+						<li><a ng-href="/#/profile"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
+						<li><a ng-href="/#/add"><i class="fa fa-fw fa-plus-circle text-center"></i> Add Items</a></li>
 						
-						<li class="menu-break"><a href="/feed.php"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
-						<li><a href="/settings.php"><i class="fa fa-fw fa-cog text-center"></i> Settings</a></li>
+						<li class="menu-break"><a ng-href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
+						<li><a ng-href="/#/settings"><i class="fa fa-fw fa-cog text-center"></i> Settings</a></li>
 						
-						<li class="menu-break"><a href="/about.php"><i class="fa fa-fw fa-question text-center"></i> Who Are We?</a></li>
-						<li><a href="/contact.php"><i class="fa fa-fw fa-comment text-center"></i> Contact Us</a></li>
+						<li class="menu-break"><a ng-href="/#/about"><i class="fa fa-fw fa-question text-center"></i> Who Are We?</a></li>
+						<li><a ng-href="/#/contact"><i class="fa fa-fw fa-comment text-center"></i> Contact Us</a></li>
 						<li><a href="https://github.com/asanchez78/comicdb/issues" target="_blank"><i class="fa fa-fw fa-bug text-center"></i> Submit a Bug</a></li>
 						<li><a data-toggle="modal" data-target="#logoutFormModal"><i class="fa fa-fw fa-sign-out text-center"></i> Logout</a></li>
 					<?php } else { ?>
-						<li><a href="/about.php"><i class="fa fa-fw fa-question text-center"></i> Who Are We?</a></li>
-						<li><a href="/contact.php"><i class="fa fa-fw fa-comment text-center"></i> Contact Us</a></li>
-						<li class="menu-break"><a href="/admin/register.php?return=<?php echo $current_page; ?>" class="login"><i class="fa fa-fw fa-plus text-center"></i> Register</a></li>
+						<li><a ng-href="/#/about"><i class="fa fa-fw fa-question text-center"></i> Who Are We?</a></li>
+						<li><a ng-href="/#/contact"><i class="fa fa-fw fa-comment text-center"></i> Contact Us</a></li>
+						<li class="menu-break"><a ng-href="/admin/register.php?return=<?php echo $current_page; ?>" class="login"><i class="fa fa-fw fa-plus text-center"></i> Register</a></li>
 						<li>
 							<button data-toggle="modal" data-target="#loginFormModal" class="btn btn-link login"><i class="fa fa-fw fa-sign-in text-center"></i> Login</button>
 						</li>

@@ -1,27 +1,30 @@
-<?php
-  $carouselIssues = new userInfo ();
-  $carouselSlides = 5;
-  $carouselIssues->carouselComics($userID, $carouselSlides);
-?>
-
+<ng-transclude></ng-transclude>
+<spinner></spinner>
 <div data-module="carousel_bar">
   <div class="row">
     <h3 class="text-center">Comic Spotlight</h3>
-    <div id="carousel_bar_carousel" class="carousel slide" data-ride="carousel">
-      <!-- Wrapper for slides -->
-      <div class="carousel-inner" role="listbox">
-        <?php echo $carouselIssues->carousel_list; ?>
+    <div id="carousel_bar_carousel" uib-carousel template-url="/modules/dashboard/carousel_bar/carousel-template.html" active="active" interval="5000">
+      <div uib-slide class="item" ng-repeat="slide in carouselComics track by $index" index="$index">
+        <div class="carousel-caption">
+          <div class="col-md-4">
+            <a ng-href="/#/comic/{{slide.comic_id}}">
+              <img ng-src="/{{slide.cover_image}}" alt="{{slide.series_name}} ({{slide.series_vol}}) #{{slide.issue_number}} Cover" class="img-responsive center-block" />
+            </a>
+          </div>
+          <div class="col-md-8">
+            <div class="logo-{{slide.publisherShort}} pull-right hidden-xs hidden-sm hidden-md"></div>
+            <h4><a ng-href="/#/comic/{{slide.comic_id}}">{{slide.series_name}} ({{slide.series_vol}}) #{{slide.issue_number}}</a></h4>
+            <div class="story-block hidden-xs hidden-sm">
+              <h5>{{slide.story_name}}</h5>
+              <div ng-bind-html="slide.plot"></div>
+              <a href="/#/comic/{{slide.comic_id}}" class="read-more">[Read More]</a>
+            </div>
+            <div class="button-block hidden-xs hidden-sm hidden-md">
+              <a href="/#/comic/{{slide.comic_id}}" class="btn btn-danger">View Issue</a> <a href="/#/series/{{slide.series_id}}" class="btn btn-danger">View Series</a>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel_bar_carousel" role="button" data-slide="prev">
-        <span aria-hidden="true"><i class="fa fa-fw fa-chevron-left"></i></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#carousel_bar_carousel" role="button" data-slide="next">
-        <span aria-hidden="true"><i class="fa fa-fw fa-chevron-right"></i></span>
-        <span class="sr-only">Next</span>
-      </a>
     </div>
   </div>
 </div>

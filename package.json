@@ -1,10 +1,9 @@
 {
   "name": "pow-comic-book-manager",
   "description": "A PHP/Angular/Bootstrap comic book manager",
-  "version": "2.0.0",
+  "version": "0.2.0",
   "private": false,
   "devDependencies": {
-    "bower": "^1.7.9",
     "grunt": "^1.0.1",
     "grunt-autoprefixer": "^3.0.4",
     "grunt-browser-sync": "^2.2.0",

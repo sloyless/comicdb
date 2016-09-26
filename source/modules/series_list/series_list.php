@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   $comic->seriesList (0, '', $profileID);
 ?>

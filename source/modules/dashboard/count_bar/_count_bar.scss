@@ -1,3 +1,8 @@
+count-bar {
+  display: block;
+  position: relative;
+}
+
 [data-module="count_bar"] {
   font-size: 13px;
   > .row {

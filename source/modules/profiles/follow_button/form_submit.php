@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   // This local function will do the brunt of the work for us, so all we have to do is pass in a few variables to it.
   $followUser = function ($profile_id, $user_id, $toggle) {

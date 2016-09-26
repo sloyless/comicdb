@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <?php
   $user_id = filter_input ( INPUT_POST, 'user_id' );
   $input_first_name = filter_input ( INPUT_POST, 'first_name' );
