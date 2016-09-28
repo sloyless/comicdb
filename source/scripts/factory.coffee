@@ -38,20 +38,29 @@ alertService = ($timeout) ->
 
 # API Factory/Service
 apiService = ($http) ->
-  userMeta = ->
-    path = '../ajax/userMeta.php'
+  userMeta = (currentUser) ->
+    if currentUser isnt undefined
+      path = '../ajax/userMeta.php?user=' + currentUser
+    else
+      path = '../ajax/userMeta.php'
     $http.post path
 
   showFeed = ->
     path = '../ajax/showFeed.php'
     $http.post path
 
-  collectionCount = ->
-    path = '../ajax/collectionCount.php'
+  collectionCount = (currentUser) ->
+    if currentUser isnt undefined
+      path = '../ajax/collectionCount.php?user=' + currentUser
+    else
+      path = '../ajax/collectionCount.php'
     $http.post path
 
-  seriesCount = ->
-    path = '../ajax/seriesCount.php'
+  seriesCount = (currentUser) ->
+    if currentUser isnt undefined
+      path = '../ajax/seriesCount.php?user=' + currentUser
+    else
+      path = '../ajax/seriesCount.php'
     $http.post path
 
   carouselComics = ->
@@ -60,6 +69,28 @@ apiService = ($http) ->
 
   mostOwned = ->
     path = '../ajax/mostOwnedComics.php'
+    $http.post path
+
+  getFollowers = (currentUser) ->
+    if currentUser isnt undefined
+      path = '../ajax/getFollowers.php?user=' + currentUser
+    else
+      path = '../ajax/getFollowers.php'
+    $http.post path
+
+  userCovers = (currentUser) ->
+    if currentUser isnt undefined
+      path = '../ajax/userCovers.php?user=' + currentUser
+    else
+      path = '../ajax/userCovers.php'
+    $http.post path
+
+  seriesList = (currentUser, type) ->
+    type = 'series' if type is undefined
+    if currentUser isnt undefined
+      path = '../ajax/seriesList.php?user=' + currentUser + '&type=' + type
+    else
+      path = '../ajax/seriesList.php?type=' + type
     $http.post path
 
   postData = (apiUrl, data) ->
@@ -73,6 +104,9 @@ apiService = ($http) ->
     seriesCount: seriesCount,
     carouselComics: carouselComics,
     mostOwned: mostOwned,
+    getFollowers: getFollowers,
+    userCovers: userCovers,
+    seriesList: seriesList,
     postData: postData
   }
 
@@ -83,7 +117,10 @@ apiService = ($http) ->
   seriesCount = {}
   carouselComics = {}
   mostOwned = {}
+  followers: {}
   postData = {}
+  userCovers = {}
+  seriesList = {}
   return service
 
 # Factories

@@ -9,7 +9,8 @@ app = angular.module('app', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angular-md5'
 ])
 
 ## Config & Routing
@@ -27,6 +28,7 @@ app.config ['$routeProvider', ($routeProvider) ->
   route('/feed', 'feed')
   route('/profile', 'profile')
   route('/profile/:user', 'profile')
+  route('/profile/:user/series/:series', 'profile')
   route('/settings', 'settings')
   route('/about', 'about')
   route('/contact', 'contact')

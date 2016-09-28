@@ -6,12 +6,9 @@
     <div id="carousel_bar_carousel" uib-carousel template-url="/modules/dashboard/carousel_bar/carousel-template.html" active="active" interval="5000">
       <div uib-slide class="item" ng-repeat="slide in carouselComics track by $index" index="$index">
         <div class="carousel-caption">
-          <div class="col-md-4">
-            <a ng-href="/#/comic/{{slide.comic_id}}">
-              <img ng-src="/{{slide.cover_image}}" alt="{{slide.series_name}} ({{slide.series_vol}}) #{{slide.issue_number}} Cover" class="img-responsive center-block" />
+            <a ng-href="/#/comic/{{slide.comic_id}}" class="carousel-image">
+              <img ng-src="/{{slide.cover_image}}" alt="{{slide.series_name}} ({{slide.series_vol}}) #{{slide.issue_number}} Cover" class="center-block" />
             </a>
-          </div>
-          <div class="col-md-8">
             <div class="logo-{{slide.publisherShort}} pull-right hidden-xs hidden-sm hidden-md"></div>
             <h4><a ng-href="/#/comic/{{slide.comic_id}}">{{slide.series_name}} ({{slide.series_vol}}) #{{slide.issue_number}}</a></h4>
             <div class="story-block hidden-xs hidden-sm">

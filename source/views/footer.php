@@ -20,8 +20,7 @@
 <script src="/scripts/vendor/angular-sanitize.min.js"></script>
 <script src="/scripts/vendor/angular-route.min.js"></script>
 <script src="/scripts/vendor/angular-animate.min.js"></script>
-<script src="/scripts/vendor/angular-aria.min.js"></script>
-<script src="/scripts/vendor/lodash.compat.min.js"></script>
+<script src="/scripts/vendor/angular-md5.min.js"></script>
 <script src="/scripts/vendor/ui-bootstrap-tpls-2.1.4.min.js"></script>
 
 <script src="/scripts/app.js"></script>

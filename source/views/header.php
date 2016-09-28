@@ -13,7 +13,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a class="navbar-brand logo" ng-href="/">
+		      <a class="navbar-brand logo" ng-href="/#/">
 						<img src="../assets/logo.svg" alt="POW! Comic Book Manager" />
 		      	<h1>Comic Book Manager</h1>
 		      </a>
@@ -22,7 +22,7 @@
     		<div class="collapse navbar-collapse" id="main-nav-collapse">
 					<ul class="nav navbar-nav nolist">
 					<?php if ($login->isUserLoggedIn () == true) { ?>
-						<li><a ng-href="/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
+						<li><a ng-href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
 						<li><a ng-href="/#/profile"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
 						<li><a ng-href="/#/add"><i class="fa fa-fw fa-plus-circle text-center"></i> Add Items</a></li>
 						

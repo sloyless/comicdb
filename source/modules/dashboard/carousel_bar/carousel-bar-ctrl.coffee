@@ -14,4 +14,3 @@ app.controller 'carouselBarCtrl', ($scope, $sce, apiService) ->
   .catch (reason) ->
     console.log reason
   $scope.active = 0
-  console.log('Carousel Bar: Yep.')

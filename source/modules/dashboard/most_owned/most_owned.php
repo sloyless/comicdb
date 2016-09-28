@@ -1,3 +1,4 @@
+<ng-transclude></ng-transclude>
 <spinner></spinner>
 <div data-module="most_owned">
   <h3>Most Owned Comics</h3>

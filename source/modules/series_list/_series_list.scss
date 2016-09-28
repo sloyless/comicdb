@@ -1,3 +1,8 @@
+series-list {
+  display: block;
+  position: relative;
+}
+
 /* Grid display styles */
 ul#inventory-table {
   @extend .row;

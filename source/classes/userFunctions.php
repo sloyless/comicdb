@@ -97,25 +97,6 @@ class userInfo {
     }
   }
 
-  // Grab the followers the user follows
-  public function userFollows($profile_id) {
-    $this->db_connection = new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );
-    if ($this->db_connection->connect_errno) {
-      die ( "Connection failed:" );
-    }
-    $sql = "SELECT user_name, user_email
-        FROM users
-        WHERE user_id = '$profile_id'";
-    $result = $this->db_connection->query ( $sql );
-    if ($result->num_rows > 0) {
-      while ( $row = $result->fetch_assoc () ) {
-        // Grab userID and userEmail from database, convert user_email to hash string for security and to pass to Gravatar.
-        $this->follow_username = $row ['user_name'];
-        $this->follow_email_hash = md5( strtolower( trim( $row ['user_email'] ) ) );
-      }
-    }
-  }
-
   // Builds the 'Comic Wall' on the users profile page header.
   public function userCovers($user_id) {
     $this->db_connection = new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );
@@ -137,38 +118,6 @@ class userInfo {
         $this->coverThumb = str_replace('-medium.', '-thumb.', $this->coverMed);
         $this->cover_list .= '<div class="col-xs-2 col-md-1 profile-bg-image"><img src="' . $this->coverThumb . '" alt="" class="img-responsive" /></div>';
       }
-    }
-  }
-
-  // Counts the number of users that follow a user
-  public function userFollowedBy($user_id) {
-    $this->db_connection = new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );
-    if ($this->db_connection->connect_errno) {
-      die ( "Connection failed:" );
-    }
-    $sql = "SELECT user_id, meta_key, meta_value
-        FROM users_meta
-        WHERE meta_key = 'user_follows' AND user_id != '$user_id'
-        ORDER BY user_id DESC";
-    $result = $this->db_connection->query ( $sql );
-    if ($result->num_rows > 0) {
-      // Initialize our final array
-      $this->followerList = array();
-
-      while ( $row = $result->fetch_assoc () ) {
-        // Grab the user_follows value from all users except logged in user
-        $followerField = $row ['meta_value'];
-        // Split string into array
-        $followSplitList = preg_split('/\D/', $followerField, NULL, PREG_SPLIT_NO_EMPTY);
-        // Count the # ids
-        $preCount = count($followSplitList);
-        for ($i = 0; $i <= $preCount; $i++) {
-          if(isset($followSplitList[$i]) && $followSplitList[$i] != $user_id) {
-            array_push($this->followerList, $followSplitList[$i]);
-          }
-        }
-      }
-      $this->followerCount = count($this->followerList);
     }
   }
 

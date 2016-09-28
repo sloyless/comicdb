@@ -116,3 +116,25 @@ carousel-bar {
     margin-top: 10px;
   }
 }
+
+.carousel-image {
+  @media (min-width: $screen-md) {
+    margin-right: 20px;
+    float: left
+  }
+
+  > img {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+
+    @media (min-width: $screen-md) {
+      max-height: 280px;
+      width: auto;
+    }
+  }
+}
+
+.carousel-content {
+
+}

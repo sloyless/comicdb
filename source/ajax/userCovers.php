@@ -1,4 +1,4 @@
-<?php
+<?php 
   require_once('../config/db.php');
   if(isset($_GET['user'])){
     // Lookup user id from username
@@ -15,15 +15,22 @@
   } else {
     $user_id = $_COOKIE ['user_id'];
   }
-  $sql = "SELECT SUM(quantity) AS totalComics from users_comics where users_comics.user_id = $user_id";
+  $sql = "SELECT cover_image
+        FROM comics
+        LEFT JOIN users_comics
+        ON comics.comic_id=users_comics.comic_id
+        WHERE users_comics.user_id=$user_id 
+        ORDER BY RAND()
+        LIMIT 36";
 
   $result = $mysqli->query ( $sql ) or die($mysqli->error.__LINE__);
-  $totalCount = '';
+  $arr = array();
   if ($result->num_rows > 0) {
     // Meta Key and Meta Value can be set as anything. We need to set an array to store all the values for the user.
-    $row = $result->fetch_row ();
-    $totalCount = (int)$row [0];
+    while($row = $result->fetch_assoc()) {
+      $arr[] = $row;
+    }
 
-    echo $json_response = json_encode($totalCount);
+    echo $json_response = json_encode($arr);
   }
 ?>
