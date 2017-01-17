@@ -15,13 +15,13 @@
 
 <!-- Scripts at the bottom to improve load time -->
 <script src="/scripts/vendor/angular.js"></script>
-<script src="/scripts/vendor/angular-resource.min.js"></script>
-<script src="/scripts/vendor/angular-cookies.min.js"></script>
-<script src="/scripts/vendor/angular-sanitize.min.js"></script>
-<script src="/scripts/vendor/angular-route.min.js"></script>
-<script src="/scripts/vendor/angular-animate.min.js"></script>
-<script src="/scripts/vendor/angular-md5.min.js"></script>
-<script src="/scripts/vendor/ui-bootstrap-tpls-2.1.4.min.js"></script>
+<script src="/scripts/vendor/angular-resource.js"></script>
+<script src="/scripts/vendor/angular-cookies.js"></script>
+<script src="/scripts/vendor/angular-sanitize.js"></script>
+<script src="/scripts/vendor/angular-route.js"></script>
+<script src="/scripts/vendor/angular-animate.js"></script>
+<script src="/scripts/vendor/angular-md5.js"></script>
+<script src="/scripts/vendor/ui-bootstrap-tpls.js"></script>
 
 <script src="/scripts/app.js"></script>
 

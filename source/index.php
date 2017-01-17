@@ -5,7 +5,7 @@
 ?>
   <title>POW! Comic Book Manager</title>
 </head>
-<body ng-app="app">
+<body>
   <?php
   // If users is logged in, shows a random comic from their collection. Otherwise just shows a random comic.
   if ($login->isUserLoggedIn () == true) {

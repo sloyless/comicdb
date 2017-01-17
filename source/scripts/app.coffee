@@ -15,29 +15,32 @@ app = angular.module('app', [
 
 ## Config & Routing
 # Handles routing for all subpages of the site.
-app.config ['$routeProvider', ($routeProvider) ->
-  route = (path, template) ->
+app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
+  route = (path, template, title) ->
     $routeProvider.when path,
       templateUrl: 'views/' + template + '.php',
       controller: 'rootController',
       activetab: template
   # Route templates and paths
   route('/', 'dashboard')
-  route('/profile', 'profile')
-  route('/add', 'add')
-  route('/feed', 'feed')
-  route('/profile', 'profile')
-  route('/profile/:user', 'profile')
-  route('/profile/:user/series/:series', 'profile')
-  route('/settings', 'settings')
-  route('/about', 'about')
-  route('/contact', 'contact')
-  route('/comic/:comic', 'comic')
-  route('/series/:series', 'series')
+  route('/add', 'add', 'Add comics')
+  route('/feed', 'feed', 'User feed')
+  route('/profile', 'profile', 'Your Profile')
+  route('/profile/:user/series/:series', 'profile', 'View series')
+  route('/settings', 'settings', 'Settings')
+  route('/about', 'about', 'About POW! Comic Book Manager')
+  route('/contact', 'contact', 'Contact POW!')
+  route('/comic/:comic', 'comic', 'View Comic')
+  route('/series/:series', 'series', 'View Series')
   # 404
   $routeProvider.otherwise { redirectTo: '/' }
+  $locationProvider.html5Mode(false)
 ]
 
-# API URL
-## To-Do: MASK THIS!
-url = '//geneva-api-dev.mybluemix.net'
+# Updates the HTML meta Title on route change.
+app.run ['$rootScope', ($rootScope) ->
+  $rootScope.$on '$routeChangeSuccess', (event, current) ->
+    $rootScope.title = current.$$route.title
+    false
+  false
+]

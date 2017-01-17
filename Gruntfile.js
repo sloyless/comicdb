@@ -128,9 +128,7 @@ module.exports = function(grunt) {
           '.htaccess',
           'assets/**/*',
           'images/**/*',
-          'bower_components/**/*',
-          '**/*.{php,html}',
-          'scripts/vendor/*.js'
+          '**/*.{php,html}'
         ],
         dest: '<%= project.build %>/',
       }
@@ -160,6 +158,11 @@ module.exports = function(grunt) {
             '<%= project.build %>/{,*/}*'
           ]
         }]
+      }
+    },
+    bower: {
+      dev: {
+        dest: 'build/scripts/vendor'
       }
     },
     watch: {
@@ -227,6 +230,7 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('default', [
     'clean',
+    'bower',
     'copy:main',
     'sass:dev',
     'autoprefixer',
@@ -238,6 +242,7 @@ module.exports = function(grunt) {
   ]);
   grunt.registerTask('build', [
     'clean',
+    'bower',
     'copy:main',
     'sass:build',
     'autoprefixer',
