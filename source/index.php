@@ -11,7 +11,7 @@
   if ($login->isUserLoggedIn () == true) {
     include 'views/header.php';
     include 'modules/user_bar/user_bar.php';
-    echo '<div ng-view></div>';
+    echo '<main ng-view></main>';
   } else {
     include 'views/splash.php';
   }

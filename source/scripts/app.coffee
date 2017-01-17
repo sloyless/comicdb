@@ -25,7 +25,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
   route('/', 'dashboard')
   route('/add', 'add', 'Add comics')
   route('/feed', 'feed', 'User feed')
-  route('/profile', 'profile', 'Your Profile')
+  route('/profile/:user', 'profile', 'Your Profile')
   route('/profile/:user/series/:series', 'profile', 'View series')
   route('/settings', 'settings', 'Settings')
   route('/about', 'about', 'About POW! Comic Book Manager')
@@ -34,6 +34,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
   route('/series/:series', 'series', 'View Series')
   # 404
   $routeProvider.otherwise { redirectTo: '/' }
+  $locationProvider.hashPrefix('')
   $locationProvider.html5Mode(false)
 ]
 
