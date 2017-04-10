@@ -23,7 +23,7 @@
 					<ul class="nav navbar-nav nolist">
 					<?php if ($login->isUserLoggedIn () == true) { ?>
 						<li><a ng-href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
-						<li><a ng-href="/#/profile"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
+						<li><a ng-href="/#/profile/{{currentUser}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
 						<li><a ng-href="/#/add"><i class="fa fa-fw fa-plus-circle text-center"></i> Add Items</a></li>
 						
 						<li class="menu-break"><a ng-href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
