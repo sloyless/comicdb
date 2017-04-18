@@ -47,23 +47,4 @@
 @import "layout/dashboard";
 
 // Modules
-@import "../modules/global/modals/modals";
-
-
-@import "../modules/spinner/spinner";
-@import "../modules/add_comic/add_comic";
-@import "../modules/series_list/series_list";
-@import "../modules/single_comic/single_comic";
-@import "../modules/profiles/profiles";
-@import "../modules/profiles/user_meta/user_meta";
-@import "../modules/profiles/edit_profile/edit_profile_modal";
-@import "../modules/profiles/follow_button/follow_button";
-@import "../modules/user_bar/user_bar";
-@import "../modules/dashboard/carousel_bar/carousel_bar";
-@import "../modules/dashboard/count_bar/count_bar";
-@import "../modules/dashboard/followers/followers";
-@import "../modules/dashboard/pull_list/pull_list";
-@import "../modules/dashboard/quick_add/quick_add";
-@import "../modules/dashboard/user_feed/user_feed";
-@import "../modules/dashboard/most_owned/most_owned";
-@import "../modules/feed/feed";
+@import "../components/global/modals/modals";
