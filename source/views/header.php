@@ -1,47 +1,54 @@
 <!-- Site wrapper begins -->
-<div id="wrapper" class="container-fluid">
-	<!-- Site content begins -->
-	<div class="row">
-		<aside class="main-sidebar col-md-2">
-			<!-- Navigation -->
-			<nav class="navbar navbar-default row" role="navigation">
-				<!-- Brand and toggle get grouped for better mobile display -->
-		    <div class="navbar-header">
-		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
-		        <span class="sr-only">Toggle navigation</span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		        <span class="icon-bar"></span>
-		      </button>
-		      <a class="navbar-brand logo" ng-href="/#/">
-						<img src="../assets/logo.svg" alt="POW! Comic Book Manager" />
-		      	<h1>Comic Book Manager</h1>
-		      </a>
-		    </div>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-    		<div class="collapse navbar-collapse" id="main-nav-collapse">
-					<ul class="nav navbar-nav nolist">
-					<?php if ($login->isUserLoggedIn () == true) { ?>
-						<li><a ng-href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
-						<li><a ng-href="/#/profile/{{currentUser}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
-						<li><a ng-href="/#/add"><i class="fa fa-fw fa-plus-circle text-center"></i> Add Items</a></li>
-						
-						<li class="menu-break"><a ng-href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
-						<li><a ng-href="/#/settings"><i class="fa fa-fw fa-cog text-center"></i> Settings</a></li>
-						
-						<li class="menu-break"><a ng-href="/#/about"><i class="fa fa-fw fa-question text-center"></i> Who Are We?</a></li>
-						<li><a ng-href="/#/contact"><i class="fa fa-fw fa-comment text-center"></i> Contact Us</a></li>
-						<li><a href="https://github.com/asanchez78/comicdb/issues" target="_blank"><i class="fa fa-fw fa-bug text-center"></i> Submit a Bug</a></li>
-						<li><a data-toggle="modal" data-target="#logoutFormModal"><i class="fa fa-fw fa-sign-out text-center"></i> Logout</a></li>
-					<?php } else { ?>
-						<li><a ng-href="/#/about"><i class="fa fa-fw fa-question text-center"></i> Who Are We?</a></li>
-						<li><a ng-href="/#/contact"><i class="fa fa-fw fa-comment text-center"></i> Contact Us</a></li>
-						<li class="menu-break"><a ng-href="/admin/register.php?return=<?php echo $current_page; ?>" class="login"><i class="fa fa-fw fa-plus text-center"></i> Register</a></li>
-						<li>
-							<button data-toggle="modal" data-target="#loginFormModal" class="btn btn-link login"><i class="fa fa-fw fa-sign-in text-center"></i> Login</button>
-						</li>
-					<?php } ?>
-					</ul>
-			</nav>
-		</aside>
-		<main class="col-md-10" role="main">
+<div class="header-wrapper" ng-controller="userCtrl">
+	<header id="mainHeader" role="banner" class="container-fluid">
+		<div class="row">
+			<div class="col-xs-5 col-md-3">
+				<a href="/#/" class="logo text-center" title="POW! Comic Book Manager">
+					<img src="../assets/svg/logo.svg" alt="POW! Comic Book Manager" />
+			    <h1 class="font-bangers">Comic Book Manager</h1>
+			  </a>
+			</div>
+			<div class="col-xs-7 col-md-9 nav-content">
+				<nav class="navbar navbar-default navbar-top">
+		      <ul class="nav navbar-nav navbar-right">
+		      	<li><button class="btn btn-link btn-search" role="button" ng-click="openModal('search')"><i class="fa fa-fw fa-search"></i></button></li>
+		      	<li class="btn-group user-profile" uib-dropdown>
+		      		<a id="profileButton" role="button" aria-haspopup="true" aria-expanded="false" uib-dropdown-toggle>
+		      			<img ng-src="{{userMeta.avatar || '../assets/images/avatar-deadpool.png'}}" alt="" class="img-circle"  width="40" />
+		      			<span class="hidden-xs hidden-sm">{{userMeta.firstName || 'User'}}</span>
+		      			<i class="fa fa-angle-down"></i>
+		      		</a>
+	            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="profileButton">
+	              <li class="menuitem" role="menuitem"><a href="#">About</a></li>
+		            <li class="menuitem" role="menuitem"><a href="#">Bugs</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li class="menuitem" role="menuitem"><a href="#">Logout</a></li>
+	            </ul>
+	          </li>
+		      </ul>
+				</nav>
+				<nav class="navbar navbar-default navbar-bottom hidden-xs hidden-sm" role="navigation">
+					<ul class="nav navbar-nav text-uppercase">
+						<li><a href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
+						<li><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
+						<li><a href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
+						<li><a href="/#/settings"><i class="fa fa-fw fa-cog"></i> Settings</a></li>
+	      	</ul>
+				</nav>
+				<div class="add-button-container hidden-xs hidden-sm">
+					<button class="btn btn-link btn-add" role="button" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-fw fa-plus"></i></button>
+				</div>
+			</div>
+		</div>
+	</header>
+	<div class="add-menu-container" uib-collapse="isCollapsed">
+		<button class="btn btn-link text-center" role="button" ng-click="openModal('add-issue')">
+			<i class="fa fa-fw fa-hashtag"></i>
+			Add issues
+		</button>
+		<button class="btn btn-link text-center" role="button" ng-click="openModal('add-series')">
+			<i class="fa fa-fw fa-folder-open-o"></i>
+			Add series
+		</button>
+	</div>
+</div>

@@ -11,7 +11,7 @@ module.exports = function(grunt) {
       build: ['./build'],
       css: ['<%= project.app %>/styles'],
       scripts: ['<%= project.app %>/scripts'],
-      components: ['<%= project.app %>/modules']
+      components: ['<%= project.app %>/components']
     },
     // Sass -> CSS
     sass: {
@@ -136,14 +136,14 @@ module.exports = function(grunt) {
     sync: {
       php: {
         files: [{
-          cwd: '<%= project.app %>/', 
+          cwd: '<%= project.app %>/',
           src: ['**/*.{php,html}'],
           dest: '<%= project.build %>/'
         }],
       },
       images: {
         files: [{
-          cwd: '<%= project.app %>/', 
+          cwd: '<%= project.app %>/',
           src: ['assets/**/*', '*.{ico,png,txt}'],
           dest: '<%= project.build %>/'
         }],
@@ -226,7 +226,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  
+
   // Default task(s).
   grunt.registerTask('default', [
     'clean',

@@ -5,27 +5,6 @@ body {
   background-size: cover;
 }
 
-h1, h2, h3, h4 {
-   letter-spacing: 1px
-}
-
-h1 {
-  margin: 5px 0;
-  font-size: 20px;
-  
-  @media (min-width: $screen-md) {
-    font-size: 24px;
-  }
-
-  @media (min-width: $screen-md) {
-    font-size: $font-size-h1;
-  }
-}
-
-h4 {
-  margin-top: 0;
-}
-
 a, button, .btn-link {
   transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out;
 
@@ -36,92 +15,16 @@ a, button, .btn-link {
   }
 }
 
-ul.nolist {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  &.row {
-    margin-left: -15px;
-    margin-right: -15px;
-  }
+.font-bangers {
+  font-family: 'Bangers', Arial, Helvetica, sans-serif;
 }
 
-.button {
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 10px;
-
-  &:after {
-    content: "";
-    display: inline-block;
-    margin: 0 5px;
-  }
-
-  &:last-of-type:after {
-    margin: 0;
-    display: none;
-  }
+.font-raleway {
+  font-family: 'Raleway', Arial, Helvetica, sans-serif
 }
-
-.smalltext {
-  font-size: 10px;
-}
-
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
-}
-
-/* Notifications */
-.notifications {
-  transition: height 0.2s ease-in-out;
-  height: 30px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 0 15px;
-  border-radius: 0;
-
-  &.notify-hide {
-    height: 0;
-    overflow: hidden;
-    top: -5px;
-  }
-}
-
-.alert-dismissible .close {
-  right: 15px;
-  top: 1px;
-}
-
-.notification-text, .notifications .close span {
-  line-height: 30px;
-  margin: 0;
-}
-
-.notification-text {
-  font-size: 14px
-}
-
-/* Layout */
-#wrapper {
-  display: block;
-  background-color: white;
-  min-height: 100vh;
-  position: relative;
-  overflow: hidden
-}
-
-main {
-  padding-bottom: 15px;
-  margin-bottom: 21px;
 }
 
 .dev-messages {
@@ -132,163 +35,6 @@ main {
   padding-bottom: 15px;
   margin-bottom: 15px;
   border: 2px solid $border-color;
-}
-
-.headline {
-  position: relative;
-  border-top: 2px solid $divider-color;
-  border-bottom: 2px solid $divider-color;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  line-height: 30px;
-
-  h2 {
-    margin: 0;
-    font-size: 26px;
-
-    @media (min-width: $screen-md) {
-      font-size: 30px;
-    }
-  }
-}
-
-.sidebar {
-  margin-right: 0;
-  padding-bottom: 55px;
-  padding-top: 15px;
-
-  h2 {
-    font-size: 32px;
-  }
-
-  h3 {
-    font-size: 14px;
-  }
-}
-
-.big-red {
-  margin: 0 0 -3px 0;
-  font-size: 20px;
-  color: $brand-red;
-  font-family: $headings-font-family;
-  letter-spacing: 1px;
-
-  @media (min-width: $screen-md) {
-    font-size: 30px;
-  }
-}
-
-/* Series Meta */
-.series-meta {
-  font-size: 11px;
-  font-weight: bold;
-  border-top: 2px solid $border-color;
-  padding-top: 5px;
-  margin-top: 5px;
-
-  @media (min-width: $screen-md) {
-    border-top: none;
-    text-align: right;
-    float: right;
-    margin-top: 0;
-  }
-
-  li {
-    height: 100%;
-    text-align: center;
-    line-height: 1.2;
-    
-    @media (min-width: $screen-lg) {
-      line-height: 25px;
-    }
-    
-    > span {
-      display: block;
-      font-size: 12px;
-      @media (min-width: $screen-lg) {
-        display: inline;
-      }
-    }
-
-    &.issue-publisher {
-      text-align: left;
-      line-height: 25px;
-      @media (min-width: $screen-lg) {
-        text-align: center;
-      }
-    }
-
-    &.release-date {
-      line-height: 25px;
-      text-align: right;
-      @media (min-width: $screen-lg) {
-        text-align: center;
-      }
-    }
-  }
-}
-
-.sort-control-container {
-  text-align: right;
-  padding-top: 0;
-}
-.sort-control {
-  margin-right: 3px;
-
-  &:last-of-type {
-    margin-right: 0;
-  }
-}
-
-footer.main-footer {
-  position: absolute;
-  bottom: 0;
-  background-color: $brand-red;
-  color: white;
-  padding-top: 7px;
-  font-size: 12px;
-}
-
-.modal-content {
-  color: white;
-  background-color: #c9302c;
-  opacity: 0.95; 
-}
-
-.modal-logo {
-  font-size: 18px;
-
-  > img {
-    max-width: 115px;
-  }
-}
-
-.modal-body {
-  h5 {
-    font-family: $font-family-sans-serif;
-    font-weight: bold;
-    color: yellow;
-  }
-}
-
-.button-block {
-  margin-top: 25px;
-  margin-bottom: 25px;
-}
-
-.follow-list li {
-  display: inline-block;
-  width: 30px;
-  height: 30px;
-  margin: 0 3px;
-
-  &:first-of-type {
-    margin-left: 0;
-  }
-
-  &:last-of-type {
-    margin-right: 0;
-  }
 }
 
 .splash-page {
@@ -305,18 +51,6 @@ footer.main-footer {
 
   > img {
     width: 50%;
-  }
-
-  h1 {
-    font-size: 24px;
-    width: 40%;
-    padding-bottom: 15px;
-    margin-bottom: 15px;
-    border-bottom: 1px solid white;
-
-    @media (min-width: $screen-md) {
-      font-size: 48px;
-    }
   }
 
   button.login {

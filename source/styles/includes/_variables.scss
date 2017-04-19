@@ -1,21 +1,24 @@
 //Custom Variables
-$brand-red: #ff0300;
-$brand-orange: #ffaa00;
-$brand-yellow: #ffff00;
+$brand-red: #D0011B;
+$brand-orange: #F6A623;
+$brand-yellow: #F8E81C;
 
 $font-bold-weight: 700;
 $body-font-weight: 400;
 
+// Font Awesome overrides
+$fa-font-path: "../assets/fonts/font-awesome";
+
 // Bootstrap Overrides
 $body-color: white;
-$text-color: #363636;
+$text-color: #4A4A4A;
 
-$link-color: $brand-red;
-$link-hover-color: $brand-orange;
+$link-color: $brand-orange;
+$link-hover-color: darken($brand-orange, 10%);
 
-$font-family-sans-serif: 'Roboto', Arial, Helvetica, sans-serif;
+$font-family-sans-serif: 'Open Sans', Arial, Helvetica, sans-serif;
 $font-family-serif: Times, 'Times New Roman', serif;
-$font-size-base: 15px;
+$font-size-base: 16px;
 
 $font-size-h1: 17px;
 $font-size-h2: 30px;
@@ -24,11 +27,20 @@ $font-size-h4: 28px;
 $font-size-h5: 18px;
 
 $line-height-base: 1.5;
-$headings-font-family: 'Bangers', Arial, Helvetica, sans-serif;
+$headings-font-family: 'Raleway', Arial, Helvetica, sans-serif;
 $headings-font-weight: normal;
 
 $border-color: #e7e7e7;
 $divider-color: #e7e7e7;
+
+$nav-link-hover-bg: transparent;
+$navbar-default-color: white;
+$navbar-default-bg: transparent;
+$navbar-default-link-color: white;
+$navbar-default-link-hover-color: $brand-orange;
+$navbar-default-link-active-color: $brand-orange;
+$nav-link-padding: 0 20px;
+$navbar-padding-vertical: 0;
 
 $pagination-active-bg: $brand-red;
 $pagination-active-border: $brand-red;
@@ -36,7 +48,7 @@ $pagination-active-border: $brand-red;
 $imageUrl: 'images';
 
 $screen-xs: 320px;
-$screen-sm: 410px;
+$screen-sm: 415px;
 $screen-md: 641px;
 $screen-lg: 900px;
 
@@ -45,4 +57,4 @@ $container-sm: 460px;
 $container-md: 748px;
 $container-lg: 1000px;
 
-$grid-float-breakpoint: $screen-md
+$grid-float-breakpoint: $screen-md;
