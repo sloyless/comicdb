@@ -1,5 +1,6 @@
-app.controller 'userCtrl', ($scope, apiService) ->
+app.controller 'userCtrl', ($scope, $route, apiService) ->
   $scope.isCollapsed = true
+  $scope.$route = $route
 
   if angular.fromJson(localStorage.getItem('user')) isnt null
     $scope.userMeta = angular.fromJson(localStorage.getItem('user'))

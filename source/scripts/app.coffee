@@ -20,12 +20,13 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
     $routeProvider.when path,
       templateUrl: 'views/' + template + '.php',
       controller: 'rootController',
-      activetab: template
+      activetab: template,
+      title: title
   # Route templates and paths
-  route('/', 'dashboard')
+  route('/', 'dashboard', 'Dashboard')
   route('/add', 'add', 'Add comics')
   route('/feed', 'feed', 'User feed')
-  route('/profile/:user', 'profile', 'Your Profile')
+  route('/profile/:user', 'profile', 'Profile')
   route('/profile/:user/series/:series', 'profile', 'View series')
   route('/settings', 'settings', 'Settings')
   route('/about', 'about', 'About POW! Comic Book Manager')

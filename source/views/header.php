@@ -19,7 +19,7 @@
 		      			<i class="fa fa-angle-down"></i>
 		      		</a>
 	            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="profileButton">
-	              <li class="menuitem" role="menuitem"><a href="#">About</a></li>
+	              <li class="menuitem" ng-class="{active: $route.current.activetab == 'about'}" role="menuitem"><a href="#">About</a></li>
 		            <li class="menuitem" role="menuitem"><a href="#">Bugs</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li class="menuitem" role="menuitem"><a href="#">Logout</a></li>
@@ -29,10 +29,10 @@
 				</nav>
 				<nav class="navbar navbar-default navbar-bottom hidden-xs hidden-sm" role="navigation">
 					<ul class="nav navbar-nav text-uppercase">
-						<li><a href="/#/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
-						<li><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-archive"></i> Collection</a></li>
-						<li><a href="/#/feed"><i class="fa fa-users"></i> User Feed</a></li>
-						<li><a href="/#/settings"><i class="fa fa-cog"></i> Settings</a></li>
+						<li ng-class="{active: $route.current.activetab == 'dashboard'}"><a href="/#/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+						<li ng-class="{active: $route.current.activetab == 'profile'}"><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-archive"></i> Collection</a></li>
+						<li ng-class="{active: $route.current.activetab == 'feed'}"><a href="/#/feed"><i class="fa fa-users"></i> User Feed</a></li>
+						<li ng-class="{active: $route.current.activetab == 'settings'}"><a href="/#/settings"><i class="fa fa-cog"></i> Settings</a></li>
 	      	</ul>
 				</nav>
 				<div class="add-button-container hidden-xs hidden-sm">
@@ -44,13 +44,13 @@
 	<header id="mobileMenu" role="banner" class="container-fluid hidden-md hidden-lg">
 		<nav class="navbar navbar-default" role="navigation">
 			<ul class="nav navbar-nav">
-				<li class="text-center"><a href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
-				<li class="text-center"><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
+				<li ng-class="{active: $route.current.activetab == 'dashboard'}"><a href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
+				<li ng-class="{active: $route.current.activetab == 'profile'}"><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
 				<li class="add-button-container">
 					<button class="btn btn-link btn-add" role="button" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-plus"></i></button>
 				</li>
-				<li class="text-center"><a href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
-				<li class="text-center"><a href="/#/settings"><i class="fa fa-fw fa-cog"></i> Settings</a></li>
+				<li ng-class="{active: $route.current.activetab == 'feed'}"><a href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
+				<li ng-class="{active: $route.current.activetab == 'settings'}"><a href="/#/settings"><i class="fa fa-fw fa-cog"></i> Settings</a></li>
     	</ul>
 		</nav>
 	</header>

@@ -214,6 +214,7 @@
       width: 20%;
       font-size: 12px;
       line-height: 12px;
+      text-align: center;
 
       > a {
         padding: 0;
@@ -225,5 +226,9 @@
     display: block;
     margin: 0 auto;
     font-size: 30px;
+  }
+
+  li.add-button-container {
+    text-align: left;
   }
 }
