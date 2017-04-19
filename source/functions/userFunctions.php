@@ -97,30 +97,6 @@ class userInfo {
     }
   }
 
-  // Builds the 'Comic Wall' on the users profile page header.
-  public function userCovers($user_id) {
-    $this->db_connection = new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );
-    if ($this->db_connection->connect_errno) {
-      die ( "Connect failed:" );
-    }
-    $sql = "SELECT cover_image
-        FROM comics
-        LEFT JOIN users_comics
-        ON comics.comic_id=users_comics.comic_id
-        WHERE users_comics.user_id=$user_id 
-        ORDER BY RAND()
-        LIMIT 36";
-    $result = $this->db_connection->query ( $sql );
-    if ($result->num_rows > 0) {
-      $this->cover_list = '';
-      while ( $row = $result->fetch_assoc () ) {
-        $this->coverMed = $row ['cover_image'];
-        $this->coverThumb = str_replace('-medium.', '-thumb.', $this->coverMed);
-        $this->cover_list .= '<div class="col-xs-2 col-md-1 profile-bg-image"><img src="' . $this->coverThumb . '" alt="" class="img-responsive" /></div>';
-      }
-    }
-  }
-
   public function showFeed($followList, $feedLength) {
     $feed = '';
     $this->db_connection = new mysqli ( DB_HOST, DB_USER, DB_PASS, DB_NAME );

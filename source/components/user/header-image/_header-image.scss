@@ -1,0 +1,16 @@
+.header-image {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+
+  img {
+    position: absolute;
+    top: -90%;
+    opacity: 0.3;
+    width: 100%;
+
+    @media (min-width: $screen-md) {
+      top: -175%;
+    }
+  }
+}

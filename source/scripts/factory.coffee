@@ -45,6 +45,10 @@ apiService = ($http, md5) ->
       path = '../functions/api/userMeta.php'
     $http.post path
 
+  userLookup = (userId) ->
+    path = '../functions/api/userLookup.php?user=' + userId
+    $http.post path
+
   showFeed = ->
     path = '../functions/api/showFeed.php'
     $http.post path
@@ -78,11 +82,8 @@ apiService = ($http, md5) ->
       path = '../functions/api/getFollowers.php'
     $http.post path
 
-  userCovers = (currentUser) ->
-    if currentUser isnt undefined
-      path = '../functions/api/userCovers.php?user=' + currentUser
-    else
-      path = '../functions/api/userCovers.php'
+  getCover = (currentUser) ->
+    path = '../functions/api/getCover.php'
     $http.post path
 
   seriesList = (currentUser, type) ->
@@ -134,13 +135,14 @@ apiService = ($http, md5) ->
 
   service = {
     userMeta: userMeta,
+    userLookup: userLookup,
     showFeed: showFeed,
     collectionCount: collectionCount,
     seriesCount: seriesCount,
     carouselComics: carouselComics,
     mostOwned: mostOwned,
     getFollowers: getFollowers,
-    userCovers: userCovers,
+    getCover: getCover,
     seriesList: seriesList,
     postData: postData,
     getUserMeta: getUserMeta
@@ -148,6 +150,7 @@ apiService = ($http, md5) ->
 
   # Resets
   userMeta = {}
+  userLookup = {}
   feed = {}
   totalCount = {}
   seriesCount = {}
@@ -155,7 +158,7 @@ apiService = ($http, md5) ->
   mostOwned = {}
   followers: {}
   postData = {}
-  userCovers = {}
+  getCover = {}
   seriesList = {}
   getUserMeta = {}
   return service

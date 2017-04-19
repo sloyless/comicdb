@@ -1,5 +1,5 @@
 <?php
-  require_once('../config/db.php');
+  require_once('../../config/db.php');
   if(isset($_GET['user'])){
     // Lookup user id from username
     $user = $_GET['user'];

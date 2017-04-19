@@ -59,3 +59,138 @@ a, button, .btn-link {
     color: white;
   }
 }
+
+main {
+  margin-top: 103px;
+
+  @media (min-width: $screen-md) {
+    margin-top: 0;
+  }
+
+}
+
+.page-header-container {
+  background-color: $brand-red;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+
+  @media (min-width: $screen-md) {
+    height: 350px;
+  }
+
+  .meta-block {
+    background-color: rgba(black, .65);
+    position: absolute;
+    bottom: 0;
+    min-height: 60px;
+    padding: 10px 0;
+    font-size: 10px;
+
+    @media (min-width: $screen-md) {
+      min-height: 84px;
+      font-size: 14px;
+    }
+
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0;
+
+      > li {
+        position: relative;
+        width: 40%;
+        padding: 0 10px;
+        @media (min-width: $screen-md) {
+          width: 64%;
+        }
+
+        &:first-child,
+        &:nth-child(2) {
+          width: 30%;
+          @media (min-width: $screen-md) {
+            width: 18%;
+          }
+        }
+      }
+    }
+  }
+  .meta-number {
+    font-size: 30px;
+    line-height: 1;
+    margin-top: -3px;
+
+    @media (min-width: $screen-md) {
+      font-size: 48px;
+      margin-top: -8px;
+    }
+  }
+
+  .meta-followers {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+
+    > * {
+      width: 100%;
+      text-align: right;
+
+      @media (min-width: $screen-md) {
+        width: 50%;
+        text-align: center;
+      }
+    }
+
+    ul {
+      margin: 0 auto;
+    }
+  }
+}
+
+.page-header-content {
+  h2 {
+    margin-top: 75px;
+    margin-bottom: 5px;
+    font-size: 32px;
+
+    @media (min-width: $screen-md) {
+      font-size: 52px;
+      margin-top: 160px;
+    }
+  }
+  h3 {
+    margin: 0;
+    font-size: 14px;
+    @media (min-width: $screen-md) {
+      font-size: 24px;
+    }
+  }
+}
+
+.follow-list {
+  > li {
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+    margin: 0 5px;
+  }
+
+  .view-more-container {
+    height: 40px;
+    background-color: $brand-red;
+    border-radius: 50%;
+
+    .btn-view-more {
+      font-family: $font-family-sans-serif;
+      text-transform: none;
+      white-space: inherit;
+      color: white;
+      font-size: 11px;
+      line-height: 1;
+      vertical-align: middle;
+      padding: 7px 0;
+    }
+  }
+}

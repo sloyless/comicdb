@@ -2,5 +2,5 @@ app.directive 'spinner', ->
   return {
     transclude: true,
     scope: true,
-    templateUrl: '/modules/spinner/spinner.php'
+    templateUrl: '/components/global/spinner/spinner.php'
   }
