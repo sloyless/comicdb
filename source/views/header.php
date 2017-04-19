@@ -29,17 +29,30 @@
 				</nav>
 				<nav class="navbar navbar-default navbar-bottom hidden-xs hidden-sm" role="navigation">
 					<ul class="nav navbar-nav text-uppercase">
-						<li><a href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
-						<li><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
-						<li><a href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
-						<li><a href="/#/settings"><i class="fa fa-fw fa-cog"></i> Settings</a></li>
+						<li><a href="/#/"><i class="fa fa-tachometer"></i> Dashboard</a></li>
+						<li><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-archive"></i> Collection</a></li>
+						<li><a href="/#/feed"><i class="fa fa-users"></i> User Feed</a></li>
+						<li><a href="/#/settings"><i class="fa fa-cog"></i> Settings</a></li>
 	      	</ul>
 				</nav>
 				<div class="add-button-container hidden-xs hidden-sm">
-					<button class="btn btn-link btn-add" role="button" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-fw fa-plus"></i></button>
+					<button class="btn btn-link btn-add" role="button" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-plus"></i></button>
 				</div>
 			</div>
 		</div>
+	</header>
+	<header id="mobileMenu" role="banner" class="container-fluid hidden-md hidden-lg">
+		<nav class="navbar navbar-default" role="navigation">
+			<ul class="nav navbar-nav">
+				<li class="text-center"><a href="/#/"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a></li>
+				<li class="text-center"><a ng-href="/#/profile/{{userMeta.userName}}"><i class="fa fa-fw fa-archive"></i> Collection</a></li>
+				<li class="add-button-container">
+					<button class="btn btn-link btn-add" role="button" ng-click="isCollapsed = !isCollapsed"><i class="fa fa-plus"></i></button>
+				</li>
+				<li class="text-center"><a href="/#/feed"><i class="fa fa-fw fa-users"></i> User Feed</a></li>
+				<li class="text-center"><a href="/#/settings"><i class="fa fa-fw fa-cog"></i> Settings</a></li>
+    	</ul>
+		</nav>
 	</header>
 	<div class="add-menu-container" uib-collapse="isCollapsed">
 		<button class="btn btn-link text-center" role="button" ng-click="openModal('add-issue')">
