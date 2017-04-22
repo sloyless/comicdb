@@ -18,5 +18,6 @@
   </div>
 </header>
 <section class="row" role="main">
-
+  <div class="col-xs-12 col-md-8"><carousel-bar></carousel-bar></div>
+  <div class="col-xs-12 col-md-4"><user-feed></user-feed></div>
 </section>

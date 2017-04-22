@@ -1,0 +1,149 @@
+.carousel-bar {
+  position: relative;
+
+  h3 {
+    color: white;
+    font-size: 32px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid $brand-orange;
+    margin: 15px 40px;
+  }
+
+  h4 {
+    margin-top: 0;
+    font-size: 18px;
+
+    @media (min-width: $screen-md) {
+      font-size: 22px;
+    }
+  }
+
+  h5 {
+    font-size: 14px;
+    letter-spacing: 1px;
+
+    @media (min-width: $screen-lg) {
+      font-size: 16px;
+    }
+  }
+
+  > .row {
+    background-color: #363636;
+    padding-bottom: 25px;
+  }
+
+  .item.active {
+    display: block;
+  }
+
+  .carousel-caption {
+    position: static;
+    padding: 0 40px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+
+  .carousel-left {
+    width: 40%;
+  }
+
+  .carousel-image {
+    > img {
+      width: auto;
+      height: 184px;
+
+      @media (min-width: $screen-md) {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+      }
+
+      @media (min-width: $screen-lg) {
+        max-height: 380px;
+        max-width: 260px;
+      }
+    }
+  }
+
+  .carousel-right  {
+    width: 60%;
+    position: relative;
+    padding-left: 20px;
+  }
+
+  .carousel-control {
+    background-image: none;
+    width: 6%;
+
+    > span {
+      position: absolute;
+      top: 40%;
+      transform: translateY(-50%);
+      .fa {
+        font-size: 36px;
+      }
+    }
+
+    &.left {
+      > span {
+        left: 5px;
+      }
+    }
+    &.right {
+      > span {
+        right: 5px;
+      }
+    }
+  }
+
+  .story-block {
+    line-height: 1.2;
+    font-size: 11px;
+
+    @media (min-width: $screen-md) {
+      font-size: $font-size-base;
+    }
+
+    > p:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  .slide-plot {
+    h1, h2, h3, h4 {
+      font-size: $font-size-base;
+      font-weight: normal;
+      color: $text-color;
+      margin: 3px 0;
+    }
+
+    em, i {
+      font-style: normal;
+    }
+
+    strong, b {
+      font-weight: normal;
+    }
+  }
+
+  .button-block {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    @media (min-width: $screen-lg) {
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+    }
+
+    > .btn:first-of-type {
+      margin-right: 15px;
+    }
+  }
+
+  .read-more {
+    display: block;
+    margin-top: 10px;
+  }
+}

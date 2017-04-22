@@ -8,7 +8,7 @@
 			    <h1 class="font-bangers">Comic Book Manager</h1>
 			  </a>
 			</div>
-			<div class="col-xs-7 col-md-9 nav-content">
+			<div class="col-xs-7 col-md-9 nav-content font-raleway">
 				<nav class="navbar navbar-default navbar-top">
 		      <ul class="nav navbar-nav navbar-right">
 		      	<li><button class="btn btn-link btn-search" role="button" ng-click="openModal('search')"><i class="fa fa-fw fa-search"></i></button></li>

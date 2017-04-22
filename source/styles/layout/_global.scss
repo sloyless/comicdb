@@ -27,6 +27,11 @@ a, button, .btn-link {
   display: none !important;
 }
 
+.btn-default, .btn-primary {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .dev-messages {
   position: relative;
   background-color: white;
@@ -61,17 +66,16 @@ a, button, .btn-link {
 }
 
 main {
-  margin-top: 103px;
+  margin-top: 93px;
 
   @media (min-width: $screen-md) {
     margin-top: 0;
   }
-
 }
 
 .page-header-container {
   background-color: $brand-red;
-  height: 200px;
+  height: 190px;
   position: relative;
   overflow: hidden;
   color: white;
@@ -151,20 +155,20 @@ main {
 
 .page-header-content {
   h2 {
-    margin-top: 75px;
+    margin-top: 65px;
     margin-bottom: 5px;
     font-size: 32px;
 
     @media (min-width: $screen-md) {
       font-size: 52px;
-      margin-top: 160px;
+      margin-top: 165px;
     }
   }
   h3 {
     margin: 0;
     font-size: 14px;
     @media (min-width: $screen-md) {
-      font-size: 24px;
+      font-size: 20px;
     }
   }
 }

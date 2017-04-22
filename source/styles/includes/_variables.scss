@@ -58,3 +58,12 @@ $container-md: 748px;
 $container-lg: 1000px;
 
 $grid-float-breakpoint: $screen-md;
+
+// Buttons
+$btn-default-color: $text-color;
+$btn-default-bg: #E1E1E1;
+$btn-default-border: $btn-default-bg;
+
+$btn-primary-color: white;
+$btn-primary-bg: $brand-red;
+$btn-primary-border: $btn-primary-bg;

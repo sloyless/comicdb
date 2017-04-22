@@ -3,7 +3,7 @@
 <div class="user-followers">
   <span class="text-uppercase">Followers: {{followerArray.length}}</span>
   <ul class="list-unstyled follow-list text-center hidden-xs hidden-sm">
-    <li ng-repeat="follower in followerArray | limitTo:4 | orderBy:random">
+    <li ng-repeat="follower in followerArray | limitTo:4">
       <a ng-href="/profile/{{follower.user_name}}">
         <img ng-src="{{follower.avatar}}" alt="" class="img-circle img-responsive" />
       </a>
