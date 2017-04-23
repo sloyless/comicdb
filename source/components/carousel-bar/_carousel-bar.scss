@@ -7,6 +7,10 @@
     padding-bottom: 10px;
     border-bottom: 1px solid $brand-orange;
     margin: 15px 40px;
+
+    @media (min-width: $screen-md) {
+      font-size: 42px;
+    }
   }
 
   h4 {
@@ -30,6 +34,7 @@
   > .row {
     background-color: #363636;
     padding-bottom: 25px;
+    min-height: 300px;
   }
 
   .item.active {

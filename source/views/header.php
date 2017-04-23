@@ -20,9 +20,9 @@
 		      		</a>
 	            <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="profileButton">
 	              <li class="menuitem" ng-class="{active: $route.current.activetab == 'about'}" role="menuitem"><a href="#">About</a></li>
-		            <li class="menuitem" role="menuitem"><a href="#">Bugs</a></li>
+		            <li class="menuitem" role="menuitem"><a href="https://github.com/asanchez78/comicdb/issues">Bugs</a></li>
 		            <li role="separator" class="divider"></li>
-		            <li class="menuitem" role="menuitem"><a href="#">Logout</a></li>
+		            <li class="menuitem" role="menuitem"><a ng-click="logout()">Logout</a></li>
 	            </ul>
 	          </li>
 		      </ul>

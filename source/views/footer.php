@@ -1,11 +1,18 @@
-    </main>
-    <footer class="main-footer col-xs-12 text-center center-block">
-      <p>&copy;<?php echo date("Y"); ?> Anthony Sanchez and Sean Loyless.</p>
-    </footer>
-  </div>
-  <!-- Site content ends -->
-</div>
-<!-- Site wrapper ends -->
+<footer class="main-footer col-xs-12 text-center" ng-controller="userCtrl">
+  <nav class="navbar navbar-default navbar-footer hidden-xs hidden-sm font-raleway" role="navigation">
+    <ul class="nav navbar-nav text-uppercase">
+      <li ng-class="{active: $route.current.activetab == 'dashboard'}"><a href="/#/">Dashboard</a></li>
+      <li ng-class="{active: $route.current.activetab == 'profile'}"><a ng-href="/#/profile/{{userMeta.userName}}">Collection</a></li>
+      <li ng-class="{active: $route.current.activetab == 'feed'}"><a href="/#/feed">User Feed</a></li>
+      <li ng-class="{active: $route.current.activetab == 'settings'}"><a href="/#/settings">Settings</a></li>
+      <li ng-class="{active: $route.current.activetab == 'about'}"><a href="/#/about">About</a></li>
+      <li><a href="https://github.com/asanchez78/comicdb/issues" target="_blank">Bugs</a></li>
+      <li><a ng-click="logout()">Logout</a></li>
+    </ul>
+  </nav>
+  <p>Site design and development &copy;<?php echo date("Y"); ?> Anthony Sanchez and <a href="http://seanloyless.info/" target="_blank">Sean Loyless.</a><br />
+  All comic content &copy; their publishers.</p>
+</footer>
 
 <!-- Scripts at the bottom to improve load time -->
 <script src="/scripts/vendor/angular.js"></script>

@@ -1,0 +1,23 @@
+.user-feed-avatar,
+.user-feed-content {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.user-feed-avatar {
+  margin-right: 15px;
+  width: 40px;
+}
+
+.user-feed-item {
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.25;
+  vertical-align: middle;
+}
+
+.user-feed-content {
+  width: 100%;
+  margin-left: -60px;
+  padding-left: 60px;
+}

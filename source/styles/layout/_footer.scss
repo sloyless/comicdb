@@ -1,0 +1,19 @@
+.main-footer {
+  background-color: $brand-red;
+  color: white;
+  padding-top: 20px;
+}
+
+.navbar-footer {
+  min-height: 30px;
+  > .navbar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    float: none;
+
+    > li {
+      float: none;
+    }
+  }
+}

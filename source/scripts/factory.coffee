@@ -49,8 +49,8 @@ apiService = ($http, md5) ->
     path = '../functions/api/userLookup.php?user=' + userId
     $http.post path
 
-  showFeed = ->
-    path = '../functions/api/showFeed.php'
+  showFeed = (numItems) ->
+    path = '../functions/api/showFeed.php?numitems=' + numItems
     $http.post path
 
   collectionCount = (currentUser) ->

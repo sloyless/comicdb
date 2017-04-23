@@ -62,7 +62,7 @@
   <?php
   if ($login->isUserLoggedIn () == true) {
     include 'views/header.php';
-    echo '<main ng-view class="container-fluid"></main>';
+    echo '<main ng-view class="container-fluid" role="main"></main>';
   } else {
     include 'views/splash.php';
   }

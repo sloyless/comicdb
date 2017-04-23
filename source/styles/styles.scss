@@ -41,6 +41,7 @@
 // Theme
 @import "layout/global";
 @import "layout/header";
+@import "layout/footer";
 @import "layout/forms";
 @import "layout/logos";
 @import "layout/about";
@@ -51,3 +52,4 @@
 @import "../components/global/spinner/spinner";
 @import "../components/user/header-image/header-image";
 @import "../components/carousel-bar/carousel-bar";
+@import "../components/user-feed/user-feed";
