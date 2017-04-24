@@ -1,13 +1,13 @@
+<button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 <div class="modal-wrapper screen">
-  <header class="modal-header">
-    <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-logo center-block text-center">
-      <img src="../assets/logo.svg" alt="POW! Comic Book Manager" />
-      Comic Book Manager
-    </h4>
-    <p class="text-center">Log into your Account</p>
-  </header>
   <form method="post" action="" name="loginform" class="form-horizontal" ng-submit="loginUser()">
+    <header class="modal-header">
+      <h4 class="modal-logo center-block text-center" id="loginFormModalLabel">
+        <img src="../assets/logo.svg" alt="POW! Comic Book Manager" />
+        Comic Book Manager
+      </h4>
+      <p class="text-center">Log into your Account</p>
+    </header>
     <div class="modal-body">
       <div class="form-group">
         <label for="login_input_username" class="sr-only visuallyhidden">User Name</label>

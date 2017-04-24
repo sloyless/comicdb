@@ -164,11 +164,24 @@ main {
       margin-top: 165px;
     }
   }
+
   h3 {
     margin: 0;
     font-size: 14px;
     @media (min-width: $screen-md) {
       font-size: 20px;
+    }
+  }
+
+  .social-container {
+    position: absolute;
+    right: 15px;
+    bottom: 0;
+    font-size: 28px;
+    line-height: 1;
+
+    a {
+      color: white;
     }
   }
 }

@@ -1,5 +1,4 @@
 app.controller 'userFeedCtrl', ($scope, apiService, md5) ->
-  console.log 'User feed initialized.'
   $scope.loading = true
   apiService.showFeed($scope.numitems)
   .then (response) ->

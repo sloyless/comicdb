@@ -1,0 +1,33 @@
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.section-search {
+  width: 50%;
+  padding: 15px 0;
+}
+
+.section-pagenav {
+  width: 35%;
+  padding: 15px 10px;
+
+  .pagination {
+    margin: 0 auto;
+    > li > a,
+    > li > span {
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+  }
+}
+
+.section-display {
+  width: 15%;
+  padding: 15px 0;
+
+  > .btn {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

@@ -1,14 +1,14 @@
 # Root Controller
-app.controller 'rootController', ($scope, $uibModal) ->
+app.controller 'rootController', ($scope, $uibModal, $route) ->
   $scope.loginForm = {}
+  $scope.isCollapsed = true
+  $scope.$route = $route
 
   $scope.random = ->
     return 0.5 - Math.random()
 
   if angular.fromJson(localStorage.getItem('user')) isnt null
     $scope.userMeta = angular.fromJson(localStorage.getItem('user'))
-    console.log 'From Cache'
-    console.log $scope.userMeta
   else
     apiService.userMeta()
     .then (response) ->
@@ -38,6 +38,14 @@ app.controller 'rootController', ($scope, $uibModal) ->
       when 'login'
         $scope.buttonText = 'Login'
         modalData.templateUrl = modalDir + 'modal-login.php'
+        modalData.resolve = {}
+      when 'add-issue'
+        $scope.buttonText = 'Add'
+        modalData.templateUrl = modalDir + 'modal-add-issue.php'
+        modalData.resolve = {}
+      when 'add-series'
+        $scope.buttonText = 'Add'
+        modalData.templateUrl = modalDir + 'modal-add-series.php'
         modalData.resolve = {}
 
     # Launch the modal

@@ -1,5 +1,5 @@
 <!-- Site wrapper begins -->
-<div class="header-wrapper" ng-controller="userCtrl">
+<div class="header-wrapper" ng-controller="rootController">
 	<header id="mainHeader" role="banner" class="container-fluid">
 		<div class="row">
 			<div class="col-xs-5 col-md-3">
@@ -11,7 +11,7 @@
 			<div class="col-xs-7 col-md-9 nav-content font-raleway">
 				<nav class="navbar navbar-default navbar-top">
 		      <ul class="nav navbar-nav navbar-right">
-		      	<li><button class="btn btn-link btn-search" role="button" ng-click="openModal('search')"><i class="fa fa-fw fa-search"></i></button></li>
+		      	<li><button class="btn btn-link btn-search" role="button" ng-click="openModal('search')"><i class="fa fa-search"></i></button></li>
 		      	<li class="btn-group user-profile" uib-dropdown>
 		      		<a id="profileButton" role="button" aria-haspopup="true" aria-expanded="false" uib-dropdown-toggle>
 		      			<img ng-src="{{userMeta.avatar || '../assets/images/avatar-deadpool.png'}}" alt="" class="img-circle"  width="40" />

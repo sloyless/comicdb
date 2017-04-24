@@ -1,14 +1,13 @@
 <div class="modal-wrapper screen">
   <header class="modal-header">
-    <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <h4 class="modal-logo center-block text-center">
-      <img src="../assets/logo.svg" alt="POW! Comic Book Manager" />
-      Comic Book Manager
+    <button type="button" class="close" ng-click="cancel()" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times"></i></span></button>
+    <h4 class="text-uppercase modal-title">
+      Add An Issue
     </h4>
-    <p class="text-center">Log into your Account</p>
   </header>
-  <form method="post" action="" name="loginform" class="form-horizontal" ng-submit="loginUser()">
+  <form method="post" action="" name="addIssue" ng-submit="addIssue()">
     <div class="modal-body">
+      <p>Add a single issue of a series. After submitting the series and issue, you will have a chance to add or edit details before it's added to your collection.</p>
       <div class="form-group">
         <label for="login_input_username" class="sr-only visuallyhidden">User Name</label>
         <div class="input-group">
@@ -25,8 +24,8 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-lg btn-default" ng-click="cancel()"><i class="fa fa-times"></i> Close</button>
-      <button type="submit" name="login" class="btn btn-lg btn-success form-submit"><span class="icon-loading"><i class="fa fa-spinner fa-spin"></i></span><span class="text-submit"><i class="fa fa-sign-in"></i> Login</span></button>
+      <button type="button" class="btn btn-lg btn-default" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-primary btn-lg" type="button" ng-click="nextAddStep()" ng-disabled="form.$invalid"><span class="button-text" ng-show="buttonText == 'Please Wait'"><img ng-src="/assets/svg/elipsis.svg"/></span><span>{{ buttonText }}</span></button>
     </div>
   </form>
 </div>
