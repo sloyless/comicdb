@@ -27,6 +27,7 @@ app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationPro
   route('/add', 'add', 'Add comics')
   route('/feed', 'feed', 'User feed')
   route('/profile/:user', 'profile', 'Profile')
+  route('/profile/:user/:page', 'profile', 'Profile')
   route('/profile/:user/series/:series', 'profile', 'View series')
   route('/settings', 'settings', 'Settings')
   route('/about', 'about', 'About POW! Comic Book Manager')

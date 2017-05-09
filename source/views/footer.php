@@ -1,4 +1,4 @@
-<footer class="main-footer col-xs-12 text-center" ng-controller="rootController">
+<footer class="main-footer col-xs-12 text-center hidden-xs hidden-sm" ng-controller="rootController">
   <nav class="navbar navbar-default navbar-footer hidden-xs hidden-sm font-raleway" role="navigation">
     <ul class="nav navbar-nav text-uppercase">
       <li ng-class="{active: $route.current.activetab == 'dashboard'}"><a href="/#/">Dashboard</a></li>

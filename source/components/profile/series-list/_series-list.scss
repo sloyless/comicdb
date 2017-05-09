@@ -1,0 +1,362 @@
+series-list {
+  display: block;
+  position: relative;
+}
+
+/* Grid display styles */
+ul#inventoryTable {
+  margin-top: 0;
+  margin-left: -10px;
+  margin-right: -10px;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 300px;
+
+  > li {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  small {
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+
+  .comic-image {
+    overflow: hidden;
+  }
+
+  .series-count {
+    font-size: 11px;
+    font-weight: bold;
+  }
+
+  .series-publisher {
+    display: none;
+  }
+
+  .story-name {
+    display: none;
+  }
+
+  .issue-meta {
+    display: inline-block;
+    font-weight: bold;
+    font-size: 11px;
+    text-align: left;
+    padding-top: 5px;
+  }
+
+  .series-extra {
+    font-size: 10px;
+    font-weight: bold;
+  }
+}
+
+#inventoryTable.layout-thumbLg,
+#inventoryTable.layout-thumbSm {
+  .table-header {
+    display: none;
+  }
+
+  .series-info {
+    display: block;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  li {
+    position: relative;
+  }
+
+  .comic-image {
+    width: 100%;
+    display: block;
+  }
+
+  .series-title {
+    text-align: center;
+    width: 100%;
+  }
+
+  .issue-number,
+  .release-date {
+    display: inline-block;
+    font-size: 11px;
+    width: 50%;
+    font-weight: bold;
+  }
+
+  .series-count {
+    text-align: center;
+  }
+}
+
+#inventoryTable.layout-thumbLg {
+  li {
+    margin-bottom: 10px;
+    width: 50%;
+
+    @media (min-width: $screen-lg) {
+      width: 25%;
+    }
+
+    .series-info {
+      transition: box-shadow 0.2s ease-in-out;
+      box-shadow: 0px 0px 15px 1px transparent;
+      color: white;
+
+      &:hover, &:focus {
+        text-decoration: none;
+        box-shadow: 0px 0px 15px 1px gray;
+      }
+    }
+
+    .issue-meta {
+      width: 50%;
+    }
+  }
+
+  .series-title {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 5px 10px;
+
+    a {
+      color: white;
+    }
+
+    h3 {
+      font-size: 14px;
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  .volume-number {
+    width: 45px;
+    height: 48px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    span {
+      display: block;
+      color: white;
+      text-align: center;
+      transform: rotate(45deg);
+      position: relative;
+      left: -30px;
+      top: 6px;
+      width: 120px;
+      background-color: $brand-red;
+      padding: 2px 0;
+      font-size: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .release-date {
+    text-align: right;
+  }
+
+  .series-extra {
+    padding-top: 5px;
+  }
+
+  .series-count {
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+// Small Thumbnail View
+#inventoryTable.layout-thumbSm {
+  padding: 0 10px;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  li {
+    margin-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+
+    @media (min-width: $screen-lg) {
+      width: 12.5%;
+    }
+  }
+
+  .series-title {
+    line-height: 1;
+    margin-bottom: 5px;
+
+    h3, span {
+      display: inline;
+    }
+
+    h3 {
+      font-size: 11px;
+      font-family: $font-family-sans-serif;
+      letter-spacing: 0;
+    }
+
+    span {
+      font-size: 10px;
+    }
+  }
+
+  .series-count {
+    font-size: 10px;
+  }
+
+  .volume-number,
+  .release-date {
+    display: none;
+  }
+
+  .issue-number {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* List View */
+#inventoryTable.layout-list {
+  display: block;
+
+  /* Setting font sizes */
+  .table-header,
+  .volume-number,
+  .issue-number,
+  .story-name,
+  .release-date {
+    font-size: 11px;
+
+    @media (min-width: $screen-lg) {
+      font-size: 13px;
+    }
+  }
+
+  .table-header {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid black;
+  }
+
+  li {
+    width: 100%;
+  }
+
+  li:nth-child(even) {
+    background-color: #FFE4E1;
+  }
+
+  .series-list-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .series-info, .issue-info {
+    width: 60%;
+    @media (min-width: $screen-lg) {
+      width: 70%;
+    }
+  }
+
+  .series-title,
+  .volume-number,
+  .series-extra,
+  .story-name,
+  .issue-number,
+  .release-date {
+    padding-top: 12px;
+    padding-bottom: 9px;
+  }
+
+  .comic-image {
+    display: none;
+  }
+
+  .story-name {
+    display: block;
+  }
+
+  .volume-number,
+  .issue-number {
+    text-align: center;
+    width: 25%;
+
+    @media (min-width: $screen-lg) {
+      width: 15%;
+    }
+  }
+
+  .series-title {
+    h3 {
+      font-size: 12px;
+      font-family: $font-family-sans-serif;
+      letter-spacing: 0;
+
+      @media (min-width: $screen-md) {
+        font-size: 16px;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  .series-extra {
+    width: 15%;
+    text-align: right;
+  }
+
+  .series-publisher {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .series-count {
+    display: block;
+    text-align: right;
+    font-weight: normal;
+    width: 100%;
+  }
+}
+
+.release-date {
+  text-align: right;
+}
+
+.issue-loading span {
+  animation-name: blink;
+  animation-duration: 1.4s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+
+  &:nth-child(2) {
+    animation-delay: .2s;
+  }
+
+  &:nth-child(3) {
+    animation-delay: .4s;
+  }
+}

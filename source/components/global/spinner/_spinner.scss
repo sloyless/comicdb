@@ -5,10 +5,8 @@
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 80px;
-  margin-left: -15px;
-  margin-right: -15px;
   z-index: 999;
+  background-image: radial-gradient(circle farthest-side, rgba(0,0,0,0.9), transparent);
 
   .loading-spinner {
     position: absolute;

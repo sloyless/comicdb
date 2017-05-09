@@ -82,16 +82,37 @@ apiService = ($http, md5) ->
       path = '../functions/api/getFollowers.php'
     $http.post path
 
-  getCover = (currentUser) ->
+  getCover = (currentUser, series) ->
     path = '../functions/api/getCover.php'
+    if currentUser || series
+      if currentUser
+        path += '?user=' + currentUser
+        if series
+          path += '&series=' + series
+      else
+          path += '?series=' + series
     $http.post path
 
-  seriesList = (currentUser, type) ->
-    type = 'series' if type is undefined
-    if currentUser isnt undefined
-      path = '../functions/api/seriesList.php?user=' + currentUser + '&type=' + type
+  seriesList = (currentUser, type, offset) ->
+    path = '../functions/api/seriesList.php'
+    if currentUser
+      path += '?user=' + currentUser
+      if type
+        path += '&type=' + type
     else
-      path = '../functions/api/seriesList.php?type=' + type
+      path += '?type=' + type
+
+    if offset
+      path += '&offset=' + offset
+    $http.post path
+
+  seriesIssueCount = (currentUser, seriesId) ->
+    path = '../functions/api/seriesIssueCount.php'
+    if currentUser
+      path += '?user=' + currentUser
+
+    if seriesId
+      path += '&series=' + seriesId
     $http.post path
 
   postData = (apiUrl, data) ->
@@ -144,6 +165,7 @@ apiService = ($http, md5) ->
     getFollowers: getFollowers,
     getCover: getCover,
     seriesList: seriesList,
+    seriesIssueCount: seriesIssueCount,
     postData: postData,
     getUserMeta: getUserMeta
   }
@@ -152,8 +174,6 @@ apiService = ($http, md5) ->
   userMeta = {}
   userLookup = {}
   feed = {}
-  totalCount = {}
-  seriesCount = {}
   carouselComics = {}
   mostOwned = {}
   followers: {}

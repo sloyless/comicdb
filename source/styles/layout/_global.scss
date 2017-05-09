@@ -140,6 +140,7 @@ main {
     > * {
       width: 100%;
       text-align: right;
+      position: relative;
 
       @media (min-width: $screen-md) {
         width: 50%;
@@ -176,9 +177,12 @@ main {
   .social-container {
     position: absolute;
     right: 15px;
-    bottom: 0;
+    bottom: -5px;
     font-size: 28px;
     line-height: 1;
+    @media (min-width: $screen-md) {
+      bottom: 0;
+    }
 
     a {
       color: white;
@@ -209,5 +213,29 @@ main {
       vertical-align: middle;
       padding: 7px 0;
     }
+  }
+}
+
+@keyframes blink {
+  /**
+   * At the start of the animation the dot
+   * has an opacity of .2
+   */
+  0% {
+    opacity: .2;
+  }
+  /**
+   * At 20% the dot is fully visible and
+   * then fades out slowly
+   */
+  20% {
+    opacity: 1;
+  }
+  /**
+   * Until it reaches an opacity of .2 and
+   * the animation can start again
+   */
+  100% {
+    opacity: .2;
   }
 }
