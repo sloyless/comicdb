@@ -11,7 +11,7 @@
  * DB_USER: user for your database. the user needs to have rights for SELECT, UPDATE, DELETE and INSERT.
  * DB_PASS: the password of the above user
 */
-$DB_HOST = "192.185.21.199:3306";
+$DB_HOST = "192.185.21.199";
 $DB_NAME = "haggis_pow";
 $DB_USER = "haggis_pow";
 $DB_PASS = "58hp2a6eeD";

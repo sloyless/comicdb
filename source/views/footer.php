@@ -9,23 +9,12 @@
     <?php include(__ROOT__.'/modules/login/login_modal.php'); ?>
   <?php } else { ?>
     <?php include(__ROOT__.'/modules/login/logout_modal.php'); ?>
-  <?php } ?>  
+  <?php } ?>
 </div>
 <!-- Site wrapper ends -->
 
 <!-- Scripts at the bottom to improve load time -->
-<script src="/bower_components/angular/angular.js"></script>
-<script src="/bower_components/angular-resource/angular-resource.js"></script>
-<script src="/bower_components/angular-cookies/angular-cookies.js"></script>
-<script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
-<script src="/bower_components/angular-route/angular-route.js"></script>
-<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-<script src="/bower_components/angular-animate/angular-animate.js"></script>
-<script src="/bower_components/angular-aria/angular-aria.js"></script>
-<script src="/bower_components/lodash/dist/lodash.compat.js"></script>
-<script src="/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="/bower_components/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js"></script>
-
+<script src="/scripts/jquery-2.2.0.min.js"></script>
 <script src="/scripts/app.js"></script>
 
 <script>

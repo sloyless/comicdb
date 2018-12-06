@@ -18,7 +18,6 @@ module.exports = function(grunt) {
       dev: {
         options: {
           outputStyle: 'expanded',
-          outFile: '<%= project.build %>/styles.css',
           sourceMap: true
         },
         files: {
@@ -27,38 +26,12 @@ module.exports = function(grunt) {
       },
       build: {
         options: {
-          outputStyle: 'compressed'
+          outputStyle: 'compressed',
+          sourceMap: false,
+          sourceMapEmbed: false
         },
         files: {
             "<%= project.build %>/styles.css": "<%= project.css %>/styles.{sass,scss}"
-        }
-      }
-    },
-    // Coffeescript -> JS
-    // Concats and compiles all coffeescript files into one app.js file
-    coffee: {
-      dev: {
-        options: {
-          bare: true,
-          sourceMap: true
-        },
-        expand: true,
-        ext: '.js',
-        flatten: false,
-        files: {
-          '<%= project.build %>/scripts/app.js': ['<%= project.js %>/app.coffee', '<%= project.js %>/factory.coffee', '<%= project.js %>/root-ctrl.coffee', '<%= project.components %>/**/*.coffee']
-        }
-      },
-      build: {
-        options: {
-          bare: true,
-          sourceMap: false
-        },
-        expand: true,
-        flatten: false,
-        ext: '.js',
-        files: {
-          '<%= project.build %>/scripts/app.js': ['<%= project.js %>/app.coffee', '<%= project.js %>/factory.coffee', '<%= project.js %>/root-ctrl.coffee', '<%= project.components %>/**/*.coffee']
         }
       }
     },
@@ -93,14 +66,6 @@ module.exports = function(grunt) {
           max_jshint_notifications: 1
         }
       },
-      coffee:{
-        options:{
-          title: "Grunt",
-          message: "Coffeescript Compiled Successfully.",
-          duration: 2,
-          max_jshint_notifications: 1
-        }
-      },
       php:{
         options:{
           title: "Grunt",
@@ -128,7 +93,6 @@ module.exports = function(grunt) {
           '.htaccess',
           'assets/**/*',
           'images/**/*',
-          'bower_components/**/*',
           '**/*.php'
         ],
         dest: '<%= project.build %>/',
@@ -165,10 +129,6 @@ module.exports = function(grunt) {
       sass: {
         files: ['<%= project.css %>/**/*.{scss,sass}','<%= project.components %>/**/*.{scss,sass}'],
         tasks: ['sass:dev','autoprefixer','notify:sass']
-      },
-      coffee: {
-        files: ['<%= project.scripts %>/**/*.{coffee,litcoffee}', '<%= project.components %>/**/*.{coffee,litcoffee}'],
-        tasks: ['coffee:dev', 'newer:jshint', 'notify:coffee']
       },
       // Sync tasks for PHP and Images
       php: {
@@ -229,7 +189,6 @@ module.exports = function(grunt) {
     'copy:main',
     'sass:dev',
     'autoprefixer',
-    'coffee:dev',
     'jshint',
     'php',
     'browserSync:dev',
@@ -240,7 +199,6 @@ module.exports = function(grunt) {
     'copy:main',
     'sass:build',
     'autoprefixer',
-    'coffee:build',
     'jshint'
   ]);
 };

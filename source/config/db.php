@@ -12,9 +12,9 @@
  * DB_PASS: the password of the above user
 */
 $DB_HOST = "localhost";
-$DB_NAME = "comicdb";
-$DB_USER = "comicdb";
-$DB_PASS = "comicdb";
+$DB_NAME = "haggis_pow";
+$DB_USER = "haggis_pow";
+$DB_PASS = "58hp2a6eeD";
 
 define ( "DB_HOST", $DB_HOST );
 define ( "DB_NAME", $DB_NAME );
