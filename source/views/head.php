@@ -4,7 +4,7 @@
   require_once(__ROOT__.'/classes/Login.php');
   require_once(__ROOT__.'/classes/functions.php');
   require_once(__ROOT__.'/classes/userFunctions.php');
-  
+
   $login = new Login();
   if ($login->isUserLoggedIn () == true) {
     $userName = $_COOKIE ['user_name'];
@@ -29,6 +29,7 @@
   <meta http-equiv="Content-Language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="apple-touch-icon-precomposed" href="/assets/logo.png">
   <meta name="description" content="POW! Comic Book Manager is your best place to organize and display your comic book collection!">
 
@@ -36,7 +37,7 @@
   <meta name="identifier-URL" content="http://comicmanager.com/">
   <link rel="index" href="http://comicmanager.com/" title="POW! Comic Book Manager">
   <link rel="canonical" href="http://comicmanager.com/">
-  
+
   <!-- iOS-->
   <meta name="apple-mobile-web-app-title" content="POW! Comic Book Manager">
 

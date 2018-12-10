@@ -11,7 +11,7 @@ date_default_timezone_set('America/Chicago');
  * issueCheck
  * insertCreators
  * seriesList
- * 
+ *
  * </pre>
  * @author asanchez
  * @author sloyless
@@ -147,6 +147,7 @@ class comicSearch {
         WHERE comics.series_id=$series_id AND users_comics.user_id=$ownerID ORDER BY comics.issue_number";
     $result = $this->db_connection->query ( $sql );
     if ($result->num_rows > 0) {
+      $issueList = json_encode($result);
       while ( $row = $result->fetch_assoc () ) {
         $this->comic_id = $row ['comic_id'];
         $this->issue_number = $row ['issue_number'];
@@ -229,7 +230,7 @@ class comicSearch {
         LEFT JOIN users_comics
         ON comics.comic_id=users_comics.comic_id
         WHERE comics.series_id=$series_id AND users_comics.user_id=$ownerID";
-      
+
       // Issue count
       $this->series_issue_count = mysqli_num_rows($this->db_connection->query ( $sql ));
       if ($this->series_issue_count == 1) {
@@ -369,7 +370,7 @@ class comicSearch {
           LIKE 'The %' THEN trim(substr(series_name from 4)) else series_name end as series_name2
           FROM series WHERE $idList
           ORDER BY series_name2 ASC, series_vol ASC";
-        $this->series_list_result = $this->db_connection->query ( $sql ); 
+        $this->series_list_result = $this->db_connection->query ( $sql );
       }
     } else {
       // List all owned books in a series
@@ -411,7 +412,7 @@ class comicSearch {
 
           // Loop to generate page number links
           for ($i = 1; $i <= $this->numPages; $i++) {
-            if (isset($profile_name) && $profile_name !== '') { 
+            if (isset($profile_name) && $profile_name !== '') {
               $userBrowse = 'user=' . $profile_name . '&';
             } else {
               $userBrowse = '';
@@ -444,9 +445,9 @@ class comicSearch {
             $offsetNum = $this->pageNum - 1;
             $sql .= 'OFFSET ' . 48 * $offsetNum;
           }
-          
+
         }
-        $this->series_list_result = $this->db_connection->query ( $sql ); 
+        $this->series_list_result = $this->db_connection->query ( $sql );
       }
     }
   }

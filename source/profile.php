@@ -17,11 +17,11 @@
   $user->userMeta($profileID);
 
   if (isset($user->user_first_name)) {
-    $first_name = $user->user_first_name;  
+    $first_name = $user->user_first_name;
   } else {
     $first_name = '';
   }
-  
+
   if (isset($user->user_last_name)) {
     $last_name = $user->user_last_name;
   } else {
@@ -66,13 +66,11 @@
   <header class="row profile-header">
     <div class="profile-background-container">
       <div class="profile-background">
-        <div class="row">
-          <?php 
-            // Grabs 48 random covers for the profile page header
-            $user->userCovers($profileID);
-            echo $user->cover_list; 
-          ?>
-        </div>
+          <?php $user->userCovers($profileID); // Grabs a random cover for the profile page header ?>
+          <script>
+            console.log(<?php echo $user->userCover; ?>)
+          </script>
+          <!-- <img src="<?php echo $user->userCover; ?>" alt="" /> -->
       </div>
     </div>
     <?php include ('modules/profiles/user_meta/user_meta.php'); ?>
@@ -90,7 +88,9 @@
   <?php if ($login->isUserLoggedIn () == true && !isset($profile_name)) { ?>
     <?php include ('modules/profiles/edit_profile/edit_profile_modal.php'); ?>
   <?php } ?>
-  <?php include ('modules/series_list/series_list.php'); ?>
+  <?php
+    // include ('modules/series_list/series_list.php');
+  ?>
 
 <?php include 'views/footer.php';?>
 </body>

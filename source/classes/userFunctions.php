@@ -126,17 +126,19 @@ class userInfo {
         FROM comics
         LEFT JOIN users_comics
         ON comics.comic_id=users_comics.comic_id
-        WHERE users_comics.user_id=$user_id 
+        WHERE users_comics.user_id=$user_id
         ORDER BY RAND()
-        LIMIT 36";
+        LIMIT 1";
     $result = $this->db_connection->query ( $sql );
     if ($result->num_rows > 0) {
-      $this->cover_list = '';
+      $coverList = '';
+
       while ( $row = $result->fetch_assoc () ) {
-        $this->coverMed = $row ['cover_image'];
-        $this->coverThumb = str_replace('-medium.', '-thumb.', $this->coverMed);
-        $this->cover_list .= '<div class="col-xs-2 col-md-1 profile-bg-image"><img src="' . $this->coverThumb . '" alt="" class="img-responsive" /></div>';
+        $coverMed = $row['cover_image'];
+        $coverThumb = str_replace('-medium.', '-thumb.', $coverMed);
+        $coverList .= $coverThumb;
       }
+      $this->userCover = json_encode($coverList);
     }
   }
 
@@ -215,7 +217,7 @@ class userInfo {
         ON comics.series_id=series.series_id
         LEFT join publishers
         on series.publisherID=publishers.publisherID
-        WHERE users_comics.user_id=$user_id 
+        WHERE users_comics.user_id=$user_id
         ORDER BY RAND()
         LIMIT 5";
     $result = $this->db_connection->query ( $sql );

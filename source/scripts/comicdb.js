@@ -1,14 +1,15 @@
+'use strict';
 jQuery(document).ready(function($) {
   var displayChange = function (type) {
     var layoutThumbLg, layoutThumbSm, layoutList, days, myDate, cookieString, $comics, $comicsList, typeClass;
-    
+
     // Set Cookie to remember list display
     days=30;
     myDate = new Date();
     myDate.setTime(myDate.getTime()+(days*24*60*60*1000));
     cookieString = 'DisplayStyle=' + type + '; expires=' + myDate.toGMTString() + '; path=/';
     document.cookie = cookieString;
-    
+
     // Layouts
     layoutThumbLg = 'col-xs-6 col-sm-4 col-md-3 col-lg-2';
     layoutThumbSm = 'col-xs-3 col-sm-3 col-md-2 col-lg-1';
@@ -20,9 +21,9 @@ jQuery(document).ready(function($) {
 
     // Reset rows and classes on each cell
     $($comicsList).attr('class','row layout-' + type);
-    if (type == 'thumbLg') {
+    if (type === 'thumbLg') {
       typeClass = layoutThumbLg;
-    } else if (type == 'thumbSm') {
+    } else if (type === 'thumbSm') {
       typeClass = layoutThumbSm;
     } else {
       typeClass = layoutList;
@@ -35,14 +36,14 @@ jQuery(document).ready(function($) {
   var $sortControls, displayCookie;
   $sortControls = $('.sort-control');
 
-  displayCookie = document.cookie.split(';').map(function(x){ return x.trim().split('='); }).filter(function(x){ return x[0]==='DisplayStyle'; }).pop();
+  displayCookie = document.cookie.split(';').map(function(x){ return x.trim().split('='); }).filter(function(x){ return x[0] === 'DisplayStyle'; }).pop();
 
   if (displayCookie !== undefined) {
-    if (displayCookie[1] == 'thumbSm') {
+    if (displayCookie[1] === 'thumbSm') {
       $($sortControls).removeClass('active');
       $('#sort-thumb-sm').addClass('active');
       displayChange('thumbSm');
-    } else if (displayCookie[1] == 'list') {
+    } else if (displayCookie[1] === 'list') {
       $($sortControls).removeClass('active');
       $('#sort-list').addClass('active');
       displayChange('list');
@@ -69,7 +70,7 @@ jQuery(document).ready(function($) {
   }
 
   $('#addTabs a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
-    window.location.hash = e.target.hash.substr(1) ; 
+    window.location.hash = e.target.hash.substr(1) ;
     return false;
   });
 
@@ -83,9 +84,9 @@ jQuery(document).ready(function($) {
     // Adds the active state to the pressed button
     $(this).addClass('active');
 
-    if(controlId == 'sort-thumb-lg') {
+    if(controlId === 'sort-thumb-lg') {
       displayChange('thumbLg');
-    } else if(controlId == 'sort-thumb-sm') {
+    } else if(controlId === 'sort-thumb-sm') {
       displayChange('thumbSm');
     } else {
       displayChange('list');
@@ -96,7 +97,7 @@ jQuery(document).ready(function($) {
   $('#editPlot').click(function(e) {
     e.preventDefault();
     $(this).text('');
-    // Shows the textarea container 
+    // Shows the textarea container
     $('#plotInput').addClass('active');
     // Hides the plot output
     $('.plot-output').addClass('hidden');
@@ -126,18 +127,18 @@ jQuery(document).ready(function($) {
   $menuItem = $('#main-nav-collapse li').find('a');
 
   $.each($menuItem, function() {
-    if (currentPage == $(this).attr('href')) {
+    if (currentPage === $(this).attr('href')) {
       $(this).parent().addClass('active');
     } else {
       // Exceptions to the rule, like Dashboard, or Issues/Comic pages
-      if (currentPage == '/index.php' && $(this).attr('href') == '/') { 
-        $(this).parent().addClass('active'); 
+      if (currentPage === '/index.php' && $(this).attr('href') === '/') {
+        $(this).parent().addClass('active');
       }
-      if (currentPage == '/issues.php' && $(this).attr('href') == '/profile.php') { 
-        $(this).parent().addClass('active'); 
+      if (currentPage === '/issues.php' && $(this).attr('href') === '/profile.php') {
+        $(this).parent().addClass('active');
       }
-      if (currentPage == '/comic.php' && $(this).attr('href') == '/profile.php') { 
-        $(this).parent().addClass('active'); 
+      if (currentPage === '/comic.php' && $(this).attr('href') === '/profile.php') {
+        $(this).parent().addClass('active');
       }
     }
   });

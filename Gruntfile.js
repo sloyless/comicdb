@@ -1,4 +1,4 @@
-'use_strict';
+'use strict';
 
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
@@ -38,7 +38,8 @@ module.exports = function(grunt) {
     // JS Error checking
     jshint: {
       all: [
-        '<%= project.build %>/{scripts,components}/**/*.js'
+        '<%= project.app %>/{scripts,modules}/**/*.js',
+        '!<%= project.app %>/{scripts,modules}/vendor/*.js',
       ],
       options: {
         jshintrc: '<%= project.app %>/.jshintrc',
@@ -81,6 +82,14 @@ module.exports = function(grunt) {
           duration: 2,
           max_jshint_notifications: 1
         }
+      },
+      js:{
+        options:{
+          title: "Grunt",
+          message: "Javascript Updated Successfully.",
+          duration: 2,
+          max_jshint_notifications: 1
+        }
       }
     },
     // Copies remaining files to places other tasks can use
@@ -91,6 +100,7 @@ module.exports = function(grunt) {
         src: [
           '*.{ico,png,txt}',
           '.htaccess',
+          '{scripts,modules}/**/*.js',
           'assets/**/*',
           'images/**/*',
           '**/*.php'
@@ -103,6 +113,13 @@ module.exports = function(grunt) {
         files: [{
           cwd: '<%= project.app %>/', 
           src: ['**/*.php'],
+          dest: '<%= project.build %>/'
+        }],
+      },
+      js: {
+        files: [{
+          cwd: '<%= project.app %>/',
+          src: ['{scripts,modules}/**/*.js'],
           dest: '<%= project.build %>/'
         }],
       },
@@ -135,6 +152,10 @@ module.exports = function(grunt) {
         files: ['<%= project.app %>/**/*.php'],
         tasks: ['sync:php', 'notify:php']
       },
+      js: {
+        files: ['<%= project.app %>/{scripts,modules}/**/*.js'],
+        tasks: ['jshint:dev', 'sync:js', 'notify:js']
+      },
       images: {
         files: ['<%= project.app %>/assets/**/*'],
         tasks: ['sync:images', 'notify:images']
@@ -160,7 +181,7 @@ module.exports = function(grunt) {
         bsFiles: {
           src : [
               '<%= project.build %>/styles.css',
-              '<%= project.build %>/scripts/*.js',
+              '<%= project.build %>/{scripts,modules}/*.js',
               '<%= project.build %>/**/*.{png,jpg,jpeg,gif,webp,svg}',
               '<%= project.build %>/**/*.{php,html}'
           ]
@@ -186,19 +207,19 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('default', [
     'clean',
+    'jshint',
     'copy:main',
     'sass:dev',
     'autoprefixer',
-    'jshint',
     'php',
     'browserSync:dev',
     'watch'
   ]);
   grunt.registerTask('build', [
     'clean',
+    'jshint',
     'copy:main',
     'sass:build',
-    'autoprefixer',
-    'jshint'
+    'autoprefixer'
   ]);
 };
