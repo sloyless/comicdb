@@ -10,9 +10,7 @@
     "angular-route": "^1.6.4",
     "angular-bootstrap": "^2.5.0",
     "lodash": "^2.4.2",
-    "angular-md5": "^0.1.10",
-    "bootstrap-sass": "^3.3.7",
-    "font-awesome": "^4.7.0"
+    "angular-md5": "^0.1.10"
   },
   "devDependencies": {}
 }

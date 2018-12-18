@@ -15,6 +15,30 @@ app = angular.module('app', [
 
 ## Config & Routing
 # Handles routing for all subpages of the site.
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+  { path: '/', component: 'dashboard' }
+  { path: '/add', component: 'add' }
+  { path: '/feed', component: 'feed' }
+  { path: '/profile/:user', component: 'profile' }
+  { path: '/profile/:user/:page', component: 'profile' }
+  { path: '/profile/:user/series/:series', component: 'profile' }
+  { path: '/settings', component: 'settings' }
+  { path: '/about', component: 'about' }
+  { path: '/contact', component: 'contact' }
+  { path: '/comic/:comic', component: 'comic' }
+  { path: '/series/:series', component: 'series' }
+]
+
+const router = new VueRouter({
+  routes // short for `routes: routes`
+})
+
+const app = new Vue({
+  router
+}).$mount('#app');
+
 app.config ['$routeProvider', '$locationProvider', ($routeProvider, $locationProvider) ->
   route = (path, template, title) ->
     $routeProvider.when path,

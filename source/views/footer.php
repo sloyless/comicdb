@@ -15,6 +15,9 @@
 </footer>
 
 <!-- Scripts at the bottom to improve load time -->
+<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
 <script src="/scripts/vendor/angular.js"></script>
 <script src="/scripts/vendor/angular-resource.js"></script>
 <script src="/scripts/vendor/angular-cookies.js"></script>
